@@ -255,6 +255,11 @@
     color:var(--gold); float:left; line-height:.85; padding:4px 8px 0 0;
   }
   .legend strong{ color:var(--ink); font-weight:600; }
+  .legend .skip{ text-align:center; margin:-8px 0 20px; font-size:13px; }
+  .legend .skip a{ color:var(--gold); text-decoration:none; border-bottom:1px dotted var(--line); }
+  .legend .beat{ color:var(--ink); font-family:"Fraunces", Georgia, serif; font-size:17px; margin:22px 0 16px; text-wrap:balance; }
+  .legend .speech{ color:var(--ink); font-style:italic; padding-left:14px; border-left:2px solid var(--gold); }
+  .legend .closing{ text-align:center; font-style:italic; margin-top:22px; }
   .legend .oath{
     margin:20px 0 0; padding-top:18px; border-top:1px solid var(--line);
     text-align:center; font-family:"Fraunces", Georgia, serif; font-size:19px;
@@ -314,6 +319,7 @@
     display:flex; align-items:center; justify-content:center;
   }
   .howto ol{ counter-reset:step; }
+  .howto li > span{ flex:1; min-width:0; }
   .howto strong{ color:var(--ink); font-weight:600; }
 
   /* ---------- route ---------- */
@@ -495,6 +501,47 @@
   .share-btn:hover{ filter:brightness(1.06); }
   .share-btn:disabled{ opacity:.55; cursor:default; }
 
+  /* ---------- llamas, Nuberu, candil final ---------- */
+  .bulb.lit svg{ animation:flicker 2.4s ease-in-out infinite; transform-origin:50% 90%; }
+  @keyframes flicker{ 0%,100%{ transform:scale(1) rotate(0); } 30%{ transform:scale(1.08,.96) rotate(-2deg); } 60%{ transform:scale(.96,1.06) rotate(2deg); } }
+  .finish-row.candil-row{ display:block; margin-bottom:6px; }
+  .candil-svg{ width:min(260px,70%); height:auto; display:block; margin:0 auto; overflow:visible; }
+  .candil-svg .cf{ fill:var(--gold); transform-box:fill-box; transform-origin:50% 90%; }
+  .candil-svg .glow{ fill:var(--gold); opacity:.16; }
+  .finish.just-complete .candil-svg .cf{ animation:cfIn .55s cubic-bezier(.2,1.4,.4,1) backwards, flicker 2.4s ease-in-out .9s infinite; }
+  .finish.just-complete .candil-svg .glow{ animation:glowIn 2.6s ease-out backwards; }
+  @keyframes cfIn{ 0%{ transform:translateY(-70px) scale(.2); opacity:0; } 100%{ transform:translateY(0) scale(1); opacity:1; } }
+  @keyframes glowIn{ 0%{ opacity:0; } 100%{ opacity:.16; } }
+  .finish .guardian{
+    display:inline-block; margin:2px 0 12px; padding:6px 16px; border-radius:999px;
+    font-family:"IBM Plex Mono", monospace; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--night); background:var(--gold);
+  }
+  .fm-label{ margin:0 0 8px; font-family:"IBM Plex Mono", monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-dim); }
+  .nuberu-final{ margin:16px auto 0; max-width:42ch; text-align:left; display:flex; gap:12px; align-items:flex-start; background:color-mix(in srgb, #7f93b8 18%, var(--night-panel)); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+  .nuberu-final .nb-cloud, .toast .nb-cloud{ font-size:26px; line-height:1; flex:none; }
+  .nuberu-final p{ margin:0; font-size:13.5px; line-height:1.55; color:var(--ink); max-width:none; }
+  .nuberu-final b, .toast .who{ display:block; font-family:"IBM Plex Mono", monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:3px; font-weight:600; }
+  .name-wrap{ margin-top:16px; }
+  .name-wrap input{ font-family:"Work Sans", sans-serif; font-size:14px; color:var(--ink); background:var(--night-panel-2); border:1px solid var(--line); border-radius:10px; padding:10px 12px; width:min(260px,100%); text-align:center; }
+  .name-wrap label{ display:block; font-size:12.5px; color:var(--ink-dim); margin-bottom:6px; }
+  .toast{
+    position:fixed; left:12px; right:12px; bottom:14px; z-index:30; max-width:480px; margin:0 auto;
+    display:flex; gap:12px; align-items:flex-start;
+    background:var(--night-panel); color:var(--ink); border:1px solid var(--gold); border-radius:14px;
+    padding:12px 14px; box-shadow:var(--shadow); font-size:14px; line-height:1.5;
+    opacity:0; transform:translateY(16px); pointer-events:none; transition:opacity .25s ease, transform .25s ease;
+  }
+  .toast.show{ opacity:1; transform:none; pointer-events:auto; }
+  .toast.nuberu{ border-color:#7f93b8; background:color-mix(in srgb, #7f93b8 22%, var(--night-panel)); }
+  .toast .who{ margin-bottom:2px; }
+  .toast .tx{ flex:1; }
+  .toast .x{ background:none; border:none; color:var(--ink-dim); font-size:18px; line-height:1; cursor:pointer; padding:0 2px; }
+  @media (prefers-reduced-motion: reduce){
+    .bulb.lit svg, .finish.just-complete .candil-svg .cf, .finish.just-complete .candil-svg .glow{ animation:none; }
+    .toast{ transition:none; }
+  }
+
   /* ---------- footer ---------- */
   .foot{ margin-top:30px; border-top:1px solid var(--line); padding-top:20px; }
   details{
@@ -611,28 +658,45 @@
   </header>
 
   <section class="legend" aria-labelledby="legendTitle">
-    <p class="eyebrow">La leyenda</p>
+    <p class="eyebrow">La leyenda de Pegollín</p>
     <h2 id="legendTitle">La noche en que se apagó la Navidad</h2>
-    <p>Dicen los más viejos de Aciera que bajo cada hórreo vive un <strong>trasgu</strong>, y que son ellos, y no los <strong>pegollos</strong> de piedra, quienes sostienen el pueblo en pie. El más antiguo de todos se llama <strong>Pegollín</strong>: gorru colorado, madreñas gastadas y un candil que no se ha apagado en trescientos inviernos.</p>
-    <p>Dentro de ese candil arden las <strong>llamas de la Navidad</strong>, tantas como casas que cada diciembre se visten de luz a mano, vecino a vecino. Mientras ardan, la Navidad llega a Aciera. Si se apagan, la noche del encendido, el <strong>5 de diciembre a las 18:00</strong>, el pueblo se quedará a oscuras.</p>
-    <p>Y una madrugada, el <strong>Nuberu</strong>, señor de las nubes y las tormentas, bajó con su viento helado desde la sierra, atravesó el valle y se coló en el candil. Las llamas salieron volando y cada una se refugió donde mejor calor encontró: en <strong>lo que los vecinos de Aciera han colocado en sus casas</strong> para esta Navidad. Un adorno, una figura, una guirnalda, algo hecho a mano. Pegollín, con sus piernas cortas y sus madreñas, no puede alcanzarlas a todas a tiempo.</p>
-    <p>Por eso te necesita a ti. Cada vecino ha dejado en su casa algo distinto, y solo alguien que mire de verdad puede reconocer dónde se esconde cada llama. <strong>Cada casa que encuentres y cada detalle que descubras devolverá una llama al candil.</strong></p>
-    <p class="oath">Una noche. Un pueblo entero guardando la luz. ¿Ayudas a Pegollín a encender Aciera?</p>
+    <p class="skip"><a href="#pistas">Saltar a las pistas ↓</a></p>
+
+    <p>Cuentan los más viejos de Aciera que bajo los hórreos del pueblo viven unos pequeños seres traviesos llamados <strong>trasgos</strong>. Cuando el pueblo duerme, salen a cuidar las casas y los caminos para que nunca falte la magia en Aciera.</p>
+    <p>El más especial de todos se llama <strong>Pegollín</strong>: lleva un gorru colorado, unas madreñas gastadas de recorrer las caleyas y un viejo candil que lleva más de trescientos inviernos sin apagarse.</p>
+    <p>Dentro del candil guarda <strong>las llamas de la Navidad de Aciera</strong>, pequeñas luces que nacen cada diciembre cuando los vecinos adornan sus casas. Mientras el candil siga encendido, la magia seguirá viva.</p>
+
+    <p class="beat"><strong>Pero este año ocurrió algo que nadie esperaba...</strong></p>
+
+    <p>Una madrugada, el viento silbó entre los hórreos, las nubes bajaron de las montañas y una carcajada retumbó por el valle. ¡Era el <strong>Nuberu</strong>, señor de las nubes y las tormentas, buscando un poco de diversión!</p>
+    <p class="speech">—¡A ver si eres capaz de encontrar tus lucecinas! —gritó entre risas.</p>
+    <p>De un enorme soplido mandó todas las llamas por los aires. Asustadas, se refugiaron en los lugares más cálidos que encontraron: <strong>los adornos que los vecinos habían preparado con tanto cariño</strong>.</p>
+    <p>Pegollín recorrió las caleyas, pero eran demasiadas y estaban muy escondidas. Entendió que esta vez no podría hacerlo solo.</p>
+
+    <p class="beat"><strong>Necesitaba tu ayuda.</strong></p>
+
+    <p>Desde el <strong>5 de diciembre, a las 18:00</strong>, cuando Aciera se vista de luz, y hasta la llegada de los Reyes Magos, las llamas permanecerán escondidas entre los adornos de las casas. Tu misión: recorrer las caleyas, seguir las pistas y descubrir dónde se esconde cada una.</p>
+    <p class="beat"><strong>Cada descubrimiento devolverá una llama al candil de Pegollín.</strong></p>
+    <p>Cuando consigas reunirlas todas, Pegollín compartirá contigo un secreto que ni el travieso Nuberu conoce: <strong>la verdadera magia de la Navidad de Aciera no está en las luces de sus casas, sino en las personas que las encienden.</strong></p>
+
+    <p class="oath">¿Ayudarás a Pegollín a recuperar las llamas perdidas?</p>
   </section>
+
+  <div id="pistas"></div>
 
   <section class="howto">
     <h2>Cómo se juega</h2>
     <ol>
-      <li>Cada tarjeta trae una <strong>pista</strong> para llegar a una casa. Pulsa <strong>Ver en el plano</strong> para ver dónde está marcada y ve a buscarla, en el orden que quieras — sin entrar en fincas ni tocar la decoración de nadie, <strong>solo mirar</strong>.</li>
-      <li>Cada casa tiene un <strong>número</strong> a la vista. Cuando llegues, escríbelo en la tarjeta para abrirla: así Pegollín sabe que has estado allí.</li>
-      <li>Fíjate bien en lo que han puesto los vecinos y responde la pregunta — solo se puede acertar si te has fijado de verdad. El progreso se queda guardado en este móvil aunque cierres la página.</li>
-      <li>Al devolver todas las llamas, Pegollín te lo agradece con un mensaje y una imagen para guardar — no hace falta buscar a nadie ni validar nada.</li>
+      <li><span>Cada tarjeta trae una <strong>pista</strong> para llegar a una casa. Pulsa <strong>Ver en el plano</strong> para ver dónde está marcada y ve a buscarla, en el orden que quieras — sin entrar en fincas ni tocar la decoración de nadie, <strong>solo mirar</strong>.</span></li>
+      <li><span>Cada casa tiene un <strong>número</strong> a la vista. Cuando llegues, escríbelo en la tarjeta para abrirla: así Pegollín sabe que has estado allí.</span></li>
+      <li><span>Fíjate bien en lo que han puesto los vecinos y responde la pregunta — solo se puede acertar si te has fijado de verdad. El progreso se queda guardado en este móvil aunque cierres la página.</span></li>
+      <li><span>Al devolver todas las llamas, Pegollín te lo agradece con un mensaje y una imagen para guardar — no hace falta buscar a nadie ni validar nada.</span></li>
     </ol>
   </section>
 
   <section class="progress" aria-live="polite">
     <div class="lights" id="lights"></div>
-    <p class="progress-count"><b id="count">0</b>/12 encontrados</p>
+    <p class="progress-count"><b id="count">0</b>/12 llamas en el candil</p>
     <button class="reset" id="resetBtn" type="button">Reiniciar búsqueda</button>
   </section>
 
@@ -642,12 +706,22 @@
 
   <section class="finish" id="finish" hidden>
     <div class="finish-row" aria-hidden="true"></div>
-    <h2>¡Completaste la Ruta de Pegollín!</h2>
-    <p>Doce casas, doce adornos descubiertos. Esta pantalla es tuya — guárdala o compártela si quieres. Feliz Navidad de parte de todo el pueblo.</p>
+    <span class="guardian">Guardián de la Luz de Aciera</span>
+    <h2>¡Has devuelto todas las llamas!</h2>
+    <p>El candil de Pegollín vuelve a brillar con las doce llamas. A partir de hoy eres <strong>Guardián de la Luz de Aciera</strong>. Guarda tu reconocimiento o compártelo si quieres.</p>
     <div class="final-message" id="finalMessage">
+      <p class="fm-label">Un mensaje de los vecinos de Aciera</p>
       <h3 class="fm-title" id="fmTitle"></h3>
       <p class="fm-body" id="fmBody"></p>
       <p class="fm-sign">Navidad en Aciera · Quirós</p>
+    </div>
+    <div class="nuberu-final">
+      <span class="nb-cloud" aria-hidden="true">☁️</span>
+      <p><b>El Nuberu, desde su nube</b>«Está bien, está bien… me has ganado. Este año no le estropearé la Navidad a Pegollín. Pero el año que viene vigilaré, ¡jajaja!»</p>
+    </div>
+    <div class="name-wrap">
+      <label for="guardianName">Si quieres, escribe tu nombre para ponerlo en el reconocimiento</label>
+      <input id="guardianName" type="text" maxlength="24" placeholder="Tu nombre (opcional)" autocomplete="off">
     </div>
     <div class="share-wrap">
       <canvas id="shareCanvas" width="1080" height="1080"></canvas>
@@ -671,6 +745,12 @@
     <p class="credit">Aciera, Quirós — hecho por y para el pueblo.</p>
   </footer>
 
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <span class="nb-cloud" id="toastIcon" aria-hidden="true">🔥</span>
+  <div class="tx"><span class="who" id="toastWho"></span><span id="toastText"></span></div>
+  <button class="x" id="toastX" type="button" aria-label="Cerrar">×</button>
 </div>
 
 
@@ -773,6 +853,8 @@
       '<rect x="19" y="40" width="9" height="4" rx="1.5" fill="#6b4a30"></rect>' +
       '<path d="M9,14 C9,2 19,-2 25,7 C29,13 21,17 13,19 Z" fill="currentColor"></path>' +
     '</svg>';
+  var FLAME_D = "M0,-10 C6,-4 7,2 0,8 C-7,2 -6,-4 0,-10Z";
+  var flameSvg = '<svg viewBox="-8 -12 16 22" aria-hidden="true"><path d="' + FLAME_D + '" fill="currentColor"></path></svg>';
   var pegollinSilhouette =
     '<svg viewBox="0 0 34 46" aria-hidden="true">' +
       '<path d="M9,14 C9,2 19,-2 25,7 C29,13 21,17 13,19 Z" fill="currentColor"></path>' +
@@ -814,7 +896,7 @@
   for(var b=0;b<PEGOLLINOS.length;b++){
     var bulb = document.createElement("span");
     bulb.className = "bulb";
-    bulb.innerHTML = pegollinSilhouette;
+    bulb.innerHTML = flameSvg;
     lightsEl.appendChild(bulb);
   }
 
@@ -822,10 +904,72 @@
   var bulbs = Array.prototype.slice.call(lightsEl.querySelectorAll(".bulb"));
 
   var finishRow = finishEl.querySelector(".finish-row");
-  for(var fr=0; fr<5; fr++){
-    var frSpan = document.createElement("span");
-    frSpan.innerHTML = pegollinSilhouette;
-    finishRow.appendChild(frSpan);
+  finishRow.classList.add("candil-row");
+  (function(){
+    var flames = "", n = PEGOLLINOS.length;
+    for(var k = 0; k < n; k++){
+      var col = k % 4, row = Math.floor(k / 4);
+      var x = 78 + col * 28, y = 72 + row * 24;
+      flames += '<g transform="translate(' + x + ',' + y + ') scale(1.15)"><path class="cf" d="' + FLAME_D + '" style="animation-delay:' + (k * 0.22).toFixed(2) + 's,' + (0.9 + k * 0.11).toFixed(2) + 's"></path></g>';
+    }
+    finishRow.innerHTML =
+      '<svg class="candil-svg" viewBox="0 0 240 190" aria-hidden="true">' +
+        '<circle class="glow" cx="120" cy="92" r="92"></circle>' +
+        '<path d="M80,34 C80,-4 160,-4 160,34" fill="none" stroke="#6b4a30" stroke-width="5" stroke-linecap="round"></path>' +
+        '<polygon points="82,44 158,44 148,32 92,32" fill="#6b4a30"></polygon>' +
+        '<rect x="62" y="44" width="116" height="100" rx="10" fill="#e8b354" opacity=".1" stroke="#6b4a30" stroke-width="5"></rect>' +
+        flames +
+        '<rect x="56" y="144" width="128" height="16" rx="6" fill="#6b4a30"></rect>' +
+        '<rect x="70" y="160" width="100" height="10" rx="5" fill="#523822"></rect>' +
+      '</svg>';
+  })();
+
+  // --- llamas que vuelven al candil + bromas del Nuberu ---
+  var NUBERU = {
+    2:  "¡Jajaja! ¿Ya tienes dos? Pues voy a soplar un poquito más por el valle… ¡a ver si te alcanzan las piernas!",
+    4:  "Cuatro llamas… mmm. ¿No notas un airecillo frío en la nuca? Soy yo, claro. Jijiji.",
+    6:  "¡La mitad ya! No pensé que llegarías tan lejos. Pero las que quedan están mucho mejor escondidas… o eso creo.",
+    8:  "Ocho llamas… Está bien, lo admito: me estás cayendo bien. Pero no se lo digas a Pegollín.",
+    10: "¡Solo quedan dos! ¿Y si me llevo una en la nube? Es broma… ¿o no? ¡Date prisa!",
+    11: "¡Una sola! Voy a hacer una nube bien grande para taparla… ¡Jajaja! Ánimo, que casi lo tienes."
+  };
+  var NUBERU_KEY = "aciera-nuberu-2026";
+  function loadSeen(){ try{ return JSON.parse(localStorage.getItem(NUBERU_KEY)) || {}; }catch(e){ return {}; } }
+  function saveSeen(o){ try{ localStorage.setItem(NUBERU_KEY, JSON.stringify(o)); }catch(e){} }
+
+  var toastEl = document.getElementById("toast"), toastIcon = document.getElementById("toastIcon");
+  var toastWho = document.getElementById("toastWho"), toastText = document.getElementById("toastText");
+  var toastQueue = [], toastBusy = false, toastTimer = null;
+  function nextToast(){
+    var t = toastQueue.shift();
+    if(!t){ toastBusy = false; toastEl.classList.remove("show"); return; }
+    toastBusy = true;
+    toastEl.classList.toggle("nuberu", t.kind === "nuberu");
+    toastIcon.textContent = t.kind === "nuberu" ? "☁️" : "🔥";
+    toastWho.textContent = t.who; toastText.textContent = t.text;
+    toastEl.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){
+      toastEl.classList.remove("show");
+      setTimeout(nextToast, 300);
+    }, t.ms);
+  }
+  function pushToast(t){ toastQueue.push(t); if(!toastBusy) nextToast(); }
+  document.getElementById("toastX").addEventListener("click", function(){
+    clearTimeout(toastTimer); toastEl.classList.remove("show"); setTimeout(nextToast, 300);
+  });
+
+  function afterFound(){
+    var total = PEGOLLINOS.length;
+    var count = state.filter(function(v){ return v === 2; }).length;
+    if(count >= total) return; // el final tiene su propia celebración
+    pushToast({ kind:"pegollin", who:"Pegollín", ms:2600,
+      text:"¡Una llama vuelve al candil! Ya brillan " + count + " de " + total + "." });
+    var seen = loadSeen();
+    if(NUBERU[count] && !seen[count]){
+      seen[count] = 1; saveSeen(seen);
+      pushToast({ kind:"nuberu", who:"El Nuberu", ms:8000, text:NUBERU[count] });
+    }
   }
 
   var wasComplete = false;
@@ -886,6 +1030,8 @@
   var shareCanvas = document.getElementById("shareCanvas");
   var shareBtn = document.getElementById("shareBtn");
   var badgeDrawn = false;
+  var nameInput = document.getElementById("guardianName");
+  nameInput.addEventListener("input", function(){ if(badgeDrawn) drawBadge(); });
   var downloadsApi; // undefined = aún resolviendo
 
   function roundRect(c, x, y, w, h, r){
@@ -973,19 +1119,25 @@
 
     ctx.fillStyle = "#f4efe1";
     ctx.font = "700 86px 'Fraunces', serif";
-    ctx.fillText("¡Completé la", 66, 760);
-    ctx.fillText("Ruta de Pegollín!", 66, 850);
+    ctx.fillText("Guardián de la", 66, 760);
+    ctx.fillText("Luz de Aciera", 66, 850);
 
     ctx.font = "500 28px 'Work Sans', sans-serif";
     ctx.fillStyle = "#c7cfe2";
-    ctx.fillText("Aciera · Quirós · Diciembre 2026", 70, 898);
+    ctx.fillText("Ruta de Pegollín · Aciera · Diciembre 2026", 70, 898);
+    var gname = nameInput ? nameInput.value.trim() : "";
+    if(gname){
+      ctx.fillStyle = "#e8b354";
+      ctx.font = "600 34px 'Work Sans', sans-serif";
+      ctx.fillText("Reconocimiento para " + gname, 70, 950);
+    }
 
     ctx.fillStyle = "rgba(244,239,225,0.12)";
     ctx.fillRect(0, 980, W, 100);
     ctx.fillStyle = "#e8b354";
     ctx.font = "700 30px 'IBM Plex Mono', monospace";
     ctx.textBaseline = "middle";
-    ctx.fillText("12 / 12", 70, 1030);
+    ctx.fillText("12 / 12 llamas", 70, 1030);
     ctx.fillStyle = "#b7c0d6";
     ctx.font = "500 22px 'Work Sans', sans-serif";
     ctx.textAlign = "right";
@@ -1002,7 +1154,8 @@
       document.fonts.load('700 30px "IBM Plex Mono"'),
       document.fonts.load('600 26px "IBM Plex Mono"'),
       document.fonts.load('700 24px "IBM Plex Mono"'),
-      document.fonts.load('500 22px "Work Sans"')
+      document.fonts.load('500 22px "Work Sans"'),
+      document.fonts.load('600 34px "Work Sans"')
     ]).catch(function(){}).then(function(){
       drawBadge();
       badgeDrawn = true;
@@ -1060,6 +1213,7 @@
         state[i] = 2;
         saveState(state);
         render();
+        afterFound();
         var foundCard = cards[i];
         foundCard.classList.add("just-found");
         setTimeout(function(){ foundCard.classList.remove("just-found"); }, 450);
@@ -1112,6 +1266,8 @@
     confirming = false;
     state = new Array(PEGOLLINOS.length).fill(0);
     saveState(state);
+    saveSeen({});
+    toastQueue = []; toastEl.classList.remove("show");
     resetBtn.textContent = "Reiniciar búsqueda";
     render();
   });
