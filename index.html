@@ -1,0 +1,1338 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f1a33">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Pegollín">
+<title>La Ruta de Pegollín</title>
+<style>
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url(fonts/Fraunces-300-900-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url(fonts/Fraunces-300-900-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/IBMPlexMono-500-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/IBMPlexMono-500-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/IBMPlexMono-600-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/IBMPlexMono-600-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/WorkSans-400-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/WorkSans-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/WorkSans-500-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/WorkSans-500-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/WorkSans-600-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/WorkSans-600-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/WorkSans-700-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/WorkSans-700-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+  /* ---------- tokens: dark-first (this page's home is the village at night) ---------- */
+  :root{
+    --night:#0f1a33;
+    --night-panel:#182645;
+    --night-panel-2:#20325a;
+    --gold:#e8b354;
+    --ember:#d1683c;
+    --pine:#6c8f6f;
+    --ink:#f4efe1;
+    --ink-dim:#b7c0d6;
+    --line: rgba(244,239,225,0.14);
+    --shadow: 0 18px 40px -22px rgba(0,0,0,0.6);
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --night:#f1e9d8;
+      --night-panel:#fbf7ec;
+      --night-panel-2:#ece0c3;
+      --gold:#a97423;
+      --ember:#b6512e;
+      --pine:#3f5c42;
+      --ink:#251d12;
+      --ink-dim:#5c5544;
+      --line: rgba(37,29,18,0.14);
+      --shadow: 0 18px 34px -24px rgba(80,60,20,0.35);
+    }
+  }
+  :root[data-theme="light"]{
+    --night:#f1e9d8;
+    --night-panel:#fbf7ec;
+    --night-panel-2:#ece0c3;
+    --gold:#a97423;
+    --ember:#b6512e;
+    --pine:#3f5c42;
+    --ink:#251d12;
+    --ink-dim:#5c5544;
+    --line: rgba(37,29,18,0.14);
+    --shadow: 0 18px 34px -24px rgba(80,60,20,0.35);
+  }
+  :root[data-theme="dark"]{
+    --night:#0f1a33;
+    --night-panel:#182645;
+    --night-panel-2:#20325a;
+    --gold:#e8b354;
+    --ember:#d1683c;
+    --pine:#6c8f6f;
+    --ink:#f4efe1;
+    --ink-dim:#b7c0d6;
+    --line: rgba(244,239,225,0.14);
+    --shadow: 0 18px 40px -22px rgba(0,0,0,0.6);
+  }
+
+  *{ box-sizing:border-box; }
+  body{
+    background:var(--night);
+    color:var(--ink);
+    margin:0;
+    font-family:"Work Sans", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2{
+    font-family:"Fraunces", Georgia, "Iowan Old Style", serif;
+    text-wrap:balance;
+    margin:0;
+  }
+  .page{ max-width:760px; margin:0 auto; padding:0 20px 64px; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:36px 4px 28px;
+    text-align:center;
+    overflow:hidden;
+  }
+  .skyline{ width:100%; height:auto; display:block; margin-bottom:8px; }
+  .eyebrow{
+    margin:0 0 6px;
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  h1{ font-size:clamp(32px,7vw,48px); font-weight:600; font-variation-settings:"opsz" 40; }
+  .tagline{
+    max-width:46ch;
+    margin:14px auto 0;
+    color:var(--ink-dim);
+    font-size:16px;
+    line-height:1.6;
+  }
+  .facts{
+    display:flex;
+    justify-content:center;
+    gap:28px;
+    flex-wrap:wrap;
+    margin:26px 0 0;
+    padding:18px 0 0;
+    border-top:1px solid var(--line);
+  }
+  .facts > div{ text-align:center; }
+  .facts dt{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:10.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    margin-bottom:4px;
+  }
+  .facts dd{ margin:0; font-weight:600; font-size:14.5px; }
+
+  /* ---------- leyenda ---------- */
+  .legend{
+    position:relative;
+    margin:8px 0 28px;
+    padding:30px 26px 26px;
+    border-radius:var(--radius);
+    border:1px solid color-mix(in srgb, var(--gold) 40%, var(--line));
+    background:radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, var(--gold) 14%, var(--night-panel)), var(--night-panel) 70%);
+    box-shadow:var(--shadow);
+  }
+  .legend .eyebrow{ text-align:center; }
+  .legend h2{ font-size:clamp(24px,5vw,31px); font-weight:600; text-align:center; margin-bottom:18px; }
+  .legend p{ margin:0 0 14px; font-size:15.5px; line-height:1.7; color:var(--ink-dim); }
+  .legend p:first-of-type::first-letter{
+    font-family:"Fraunces", Georgia, serif; font-size:3.1em; font-weight:700;
+    color:var(--gold); float:left; line-height:.85; padding:4px 8px 0 0;
+  }
+  .legend strong{ color:var(--ink); font-weight:600; }
+  .legend .oath{
+    margin:20px 0 0; padding-top:18px; border-top:1px solid var(--line);
+    text-align:center; font-family:"Fraunces", Georgia, serif; font-size:19px;
+    font-weight:600; color:var(--gold); line-height:1.4; text-wrap:balance;
+  }
+
+  /* ---------- candado: número de la casa ---------- */
+  .lock{ display:flex; flex-direction:column; gap:8px; }
+  .lock label{ font-size:12.5px; font-weight:600; color:var(--ink); }
+  .lock-row{ display:flex; gap:8px; }
+  .lock input{
+    width:84px; flex:none; text-align:center;
+    font-family:"IBM Plex Mono", monospace; font-size:18px; font-weight:600;
+    color:var(--ink); background:var(--night-panel-2);
+    border:1px solid var(--line); border-radius:10px; padding:8px; min-height:42px;
+  }
+  .lock input:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+  .lock input.wrong{ border-color:var(--ember); animation:shake .3s; }
+  .lock button{
+    font-family:"Work Sans", sans-serif; font-size:13.5px; font-weight:600;
+    color:var(--night); background:var(--gold); border:none; border-radius:10px;
+    padding:0 16px; min-height:42px; cursor:pointer;
+  }
+  .lock button:hover{ filter:brightness(1.06); }
+  .lock-msg{ margin:0; font-size:12.5px; color:var(--ember); }
+  .map-link{
+    align-self:flex-start; font-size:13px; font-weight:600; color:var(--gold);
+    text-decoration:none; border:1px solid var(--line); border-radius:999px; padding:7px 13px;
+  }
+  .map-link{ background:transparent; font-family:"Work Sans", sans-serif; cursor:pointer; }
+  .map-link:hover{ border-color:var(--gold); }
+  .card.locked .card-name{ color:var(--ink-dim); }
+
+  /* ---------- how to play ---------- */
+  .howto{
+    background:var(--night-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px 26px;
+    margin:28px 0;
+    box-shadow:var(--shadow);
+  }
+  .howto h2{ font-size:21px; font-weight:600; margin-bottom:14px; }
+  .howto ol{ margin:0; padding-left:0; list-style:none; display:grid; gap:14px; }
+  .howto li{ display:flex; gap:14px; align-items:baseline; line-height:1.55; font-size:15px; color:var(--ink-dim); }
+  .howto li::before{
+    counter-increment:step;
+    content: counter(step);
+    flex:none;
+    width:26px; height:26px;
+    border-radius:50%;
+    background:var(--night-panel-2);
+    color:var(--gold);
+    font-family:"IBM Plex Mono", monospace;
+    font-size:12.5px;
+    font-weight:600;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .howto ol{ counter-reset:step; }
+  .howto strong{ color:var(--ink); font-weight:600; }
+
+  /* ---------- route ---------- */
+  .route{ margin:28px 0; }
+  .route h2{ font-size:21px; font-weight:600; margin-bottom:6px; }
+  .route-note{ margin:0 0 16px; color:var(--ink-dim); font-size:13.5px; line-height:1.55; max-width:52ch; }
+  /* ---------- progress ---------- */
+  .progress{
+    position:sticky; top:0; z-index:5;
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    background:linear-gradient(var(--night) 78%, transparent);
+    padding:14px 0 10px;
+    margin-bottom:4px;
+  }
+  .lights{ display:flex; gap:3px; flex:1 1 auto; min-width:160px; }
+  .bulb{
+    width:20px; height:24px; flex:none;
+    color:var(--night-panel-2);
+    opacity:.55;
+    transition:color .25s ease, opacity .25s ease, transform .25s ease;
+  }
+  .bulb svg{ width:100%; height:100%; display:block; }
+  .bulb.lit{ color:var(--gold); opacity:1; transform:translateY(-2px); }
+  .progress-count{
+    margin:0;
+    font-family:"IBM Plex Mono", monospace;
+    font-variant-numeric:tabular-nums;
+    font-size:14px;
+    color:var(--ink-dim);
+    white-space:nowrap;
+  }
+  .progress-count b{ color:var(--gold); font-size:16px; }
+  .reset{
+    font-family:"Work Sans", sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--ink-dim);
+    background:transparent;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:7px 14px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .reset:hover{ border-color:var(--ember); color:var(--ember); }
+  .reset:focus-visible, .card:focus-visible, .toggle:focus-visible{
+    outline:2px solid var(--gold); outline-offset:2px;
+  }
+
+  /* ---------- pegollín grid ---------- */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(210px,1fr));
+    gap:14px;
+    margin:18px 0 8px;
+  }
+  .card{
+    background:var(--night-panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px 16px 14px;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    transition:transform .15s ease, border-color .2s ease;
+  }
+  .card.found{ border-color:color-mix(in srgb, var(--gold) 55%, var(--line)); }
+  .card-top{ display:flex; align-items:flex-start; gap:10px; }
+  .num{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    color:var(--ink-dim);
+    letter-spacing:.06em;
+  }
+  .pegollin-icon{ width:34px; height:40px; flex:none; }
+  .card:nth-child(3n+1) .pegollin-icon{ color:var(--gold); }
+  .card:nth-child(3n+2) .pegollin-icon{ color:var(--ember); }
+  .card:nth-child(3n) .pegollin-icon{ color:var(--pine); }
+  .card-name{ font-family:"Fraunces", serif; font-size:19px; font-weight:600; margin:0; }
+  .clue{ margin:0; font-size:14px; line-height:1.55; color:var(--ink-dim); flex:1; }
+  .clue em{ color:var(--ink); font-style:normal; border-bottom:1px dotted var(--line); }
+  .quiz{ margin-top:2px; }
+  .quiz-q{
+    margin:0 0 8px;
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .options{ display:flex; flex-wrap:wrap; gap:8px; }
+  .opt{
+    display:flex; align-items:center; gap:7px;
+    font-family:"Work Sans", sans-serif;
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--ink-dim);
+    background:var(--night-panel-2);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:10px 13px;
+    min-height:40px;
+    cursor:pointer;
+  }
+  .opt:hover{ border-color:var(--gold); color:var(--ink); }
+  .swatch{
+    width:16px; height:16px; border-radius:50%; flex:none;
+    box-shadow: inset 0 0 0 1px var(--line), 0 0 0 1px var(--night-panel);
+  }
+  .opt-emoji{ font-size:16px; line-height:1; }
+  .opt.wrong{ border-color:var(--ember); color:var(--ember); animation:shake .3s; }
+  @keyframes shake{
+    25%{ transform:translateX(-3px); } 75%{ transform:translateX(3px); }
+  }
+  .found-note{
+    margin:0; font-size:13.5px; font-weight:600; color:var(--gold);
+    display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+  }
+  .card.just-found{ animation:pop .45s ease; }
+  @keyframes pop{
+    0%{ transform:scale(1); } 35%{ transform:scale(1.035); } 100%{ transform:scale(1); }
+  }
+  .undo{
+    font-family:"Work Sans", sans-serif;
+    font-size:11.5px; font-weight:600;
+    color:var(--ink-dim);
+    background:none; border:none; padding:0;
+    text-decoration:underline;
+    cursor:pointer;
+  }
+  .undo:hover{ color:var(--ember); }
+  @media (prefers-reduced-motion: reduce){ .opt.wrong, .card.just-found{ animation:none; } }
+
+  /* ---------- finish banner ---------- */
+  .finish{
+    margin:26px 0 8px;
+    padding:26px;
+    text-align:center;
+    border-radius:var(--radius);
+    background:linear-gradient(180deg, color-mix(in srgb, var(--gold) 16%, var(--night-panel)), var(--night-panel));
+    border:1px solid color-mix(in srgb, var(--gold) 45%, var(--line));
+    box-shadow:var(--shadow);
+  }
+  .finish h2{ font-size:24px; margin-bottom:8px; }
+  .finish p{ margin:0; color:var(--ink-dim); max-width:44ch; margin-inline:auto; line-height:1.6; }
+  .finish-row{ display:flex; justify-content:center; gap:6px; margin-bottom:10px; }
+  .finish-row span{ width:20px; height:24px; color:var(--gold); }
+  .finish-row span svg{ width:100%; height:100%; display:block; }
+  .finish.just-complete{ animation:finishPop .5s ease; }
+  .finish.just-complete .finish-row span{ animation:finishBounce .6s ease backwards; }
+  .finish.just-complete .finish-row span:nth-child(2){ animation-delay:.06s; }
+  .finish.just-complete .finish-row span:nth-child(3){ animation-delay:.12s; }
+  .finish.just-complete .finish-row span:nth-child(4){ animation-delay:.18s; }
+  .finish.just-complete .finish-row span:nth-child(5){ animation-delay:.24s; }
+  @keyframes finishPop{ 0%{ transform:scale(.97); opacity:.4; } 100%{ transform:scale(1); opacity:1; } }
+  @keyframes finishBounce{ 0%{ transform:translateY(-10px) scale(.6); opacity:0; } 100%{ transform:translateY(0) scale(1); opacity:1; } }
+  @media (prefers-reduced-motion: reduce){
+    .finish.just-complete, .finish.just-complete .finish-row span{ animation:none; }
+  }
+  .final-message{
+    margin:16px auto 0; max-width:42ch; text-align:center;
+    background:var(--night-panel-2); border-radius:12px; padding:18px 20px;
+  }
+  .fm-title{
+    margin:0 0 8px; font-family:"Fraunces", Georgia, serif; font-weight:600;
+    font-size:17px; color:var(--gold);
+  }
+  .fm-body{ margin:0; font-size:14px; line-height:1.6; color:var(--ink); }
+  .fm-sign{
+    margin:12px 0 0; font-family:"IBM Plex Mono", monospace; font-size:10.5px;
+    letter-spacing:.08em; text-transform:uppercase; color:var(--ink-dim);
+  }
+  .share-wrap{ margin-top:18px; }
+  #shareCanvas{ display:none; }
+  .share-btn{
+    font-family:"Work Sans", sans-serif; font-weight:600; font-size:13px;
+    color:var(--night); background:var(--gold); border:none; border-radius:999px;
+    padding:11px 20px; cursor:pointer;
+  }
+  .share-btn:hover{ filter:brightness(1.06); }
+  .share-btn:disabled{ opacity:.55; cursor:default; }
+
+  /* ---------- footer ---------- */
+  .foot{ margin-top:30px; border-top:1px solid var(--line); padding-top:20px; }
+  details{
+    background:var(--night-panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:12px 16px;
+    margin-bottom:16px;
+  }
+  summary{ cursor:pointer; font-weight:600; font-size:13.5px; color:var(--ink); }
+  details p, details ol{ color:var(--ink-dim); font-size:13.5px; line-height:1.6; }
+  .credit{ font-size:12.5px; color:var(--ink-dim); text-align:center; margin:0; }
+
+  @media (prefers-reduced-motion: reduce){
+    .bulb, .card{ transition:none; }
+  }
+
+  /* ---------- mapa incrustado ---------- */
+  dialog.mapdlg{ border:1px solid var(--line); border-radius:var(--radius); background:var(--night-panel); color:var(--ink); padding:14px; width:min(96vw,720px); max-height:94vh; }
+  dialog.mapdlg::backdrop{ background:rgba(0,0,0,.6); }
+  .mapdlg h3{ margin:0 0 4px; font-family:"Fraunces", serif; font-size:19px; }
+  .mapdlg .md-note{ margin:0 0 10px; font-size:13px; color:var(--ink-dim); line-height:1.5; }
+  .mapdlg svg{ width:100%; height:auto; max-height:62vh; display:block; background:var(--night); border-radius:8px; touch-action:pan-x pan-y pinch-zoom; }
+  .mapdlg .md-row{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+  .mapdlg .md-row button{ font-family:"Work Sans", sans-serif; font-size:13px; font-weight:600; color:var(--ink); background:var(--night-panel-2); border:1px solid var(--line); border-radius:999px; padding:9px 14px; cursor:pointer; }
+  .mapdlg .md-row button.primary{ background:var(--gold); color:var(--night); border-color:transparent; }
+  .mapdlg .b{ fill:var(--night-panel-2); stroke:var(--line); stroke-width:1; opacity:.8; }
+  .mapdlg .b.house{ stroke:var(--pine); } .mapdlg .b.barn{ stroke:var(--ember); }
+  .mapdlg .rd{ fill:none; stroke:var(--ink-dim); stroke-linecap:round; stroke-linejoin:round; }
+  .mapdlg .rd.main{ stroke-width:3.4; } .mapdlg .rd.res{ stroke-width:2.1; opacity:.85; } .mapdlg .rd.min{ stroke-width:1.3; stroke-dasharray:2.5 3; opacity:.6; }
+  .mapdlg .lm text{ font-family:"IBM Plex Mono", monospace; font-size:7px; fill:var(--ink-dim); }
+  .mapdlg .lm circle{ fill:var(--ink); }
+  .mapdlg .pin-dot{ fill:var(--ember); stroke:var(--ink); stroke-width:2.5; }
+  .mapdlg .pin-pulse{ fill:var(--ember); opacity:.35; transform-box:fill-box; transform-origin:center; animation:mpulse 1.6s ease-out infinite; }
+  @keyframes mpulse{ 0%{ transform:scale(.6); opacity:.5; } 100%{ transform:scale(2.6); opacity:0; } }
+  .mapdlg .sp circle{ fill:var(--ink); stroke:var(--night); stroke-width:2; }
+  .mapdlg .sp text, .mapdlg .pin-star{ font-family:"IBM Plex Mono", monospace; font-size:9px; font-weight:600; text-anchor:middle; dominant-baseline:central; }
+  .mapdlg .sp text{ fill:var(--night); } .mapdlg .pin-star{ fill:var(--night); font-size:11px; }
+  .mapdlg .gps-dot{ fill:#5b8cf0; stroke:#fff; stroke-width:1.8; }
+  .mapdlg .gps-ring{ fill:#5b8cf0; opacity:.3; }
+  @media (prefers-reduced-motion: reduce){ .mapdlg .pin-pulse{ animation:none; } }
+  .install{ position:static; max-width:560px; margin:14px auto 0; background:var(--night-panel); border:1px solid var(--line); border-radius:var(--radius); padding:12px 14px; font-size:13px; line-height:1.5; color:var(--ink-dim); display:none; }
+  .install b{ color:var(--gold); }
+  .install .ir{ display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; }
+  .install button{ font-family:"Work Sans", sans-serif; font-size:13px; font-weight:600; border-radius:999px; padding:8px 14px; cursor:pointer; border:1px solid var(--line); background:var(--night-panel-2); color:var(--ink); }
+  .install button.primary{ background:var(--gold); color:var(--night); border-color:transparent; }
+  .offline-chip{ display:inline-block; font-family:"IBM Plex Mono", monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; padding:3px 9px; border-radius:999px; border:1px solid var(--line); color:var(--ink-dim); }
+  .offline-chip.ready{ color:var(--pine); border-color:var(--pine); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <svg class="skyline" viewBox="0 0 640 200" role="img" aria-label="Silueta nocturna de un hórreo asturiano entre pinos y estrellas">
+      <circle cx="560" cy="46" r="24" fill="var(--gold)" opacity="0.9"></circle>
+      <circle cx="70" cy="30" r="2" fill="var(--ink)" opacity="0.7"></circle>
+      <circle cx="120" cy="55" r="1.6" fill="var(--ink)" opacity="0.6"></circle>
+      <circle cx="230" cy="24" r="1.8" fill="var(--ink)" opacity="0.7"></circle>
+      <circle cx="470" cy="20" r="1.6" fill="var(--ink)" opacity="0.6"></circle>
+      <circle cx="510" cy="70" r="1.8" fill="var(--ink)" opacity="0.5"></circle>
+      <!-- pines -->
+      <g fill="var(--night-panel-2)">
+        <polygon points="40,180 66,120 92,180"></polygon>
+        <polygon points="52,180 66,140 80,180"></polygon>
+        <polygon points="560,180 582,132 604,180"></polygon>
+      </g>
+      <!-- hórreo -->
+      <g>
+        <rect x="230" y="90" width="10" height="70" fill="var(--night-panel-2)"></rect>
+        <rect x="300" y="90" width="10" height="70" fill="var(--night-panel-2)"></rect>
+        <rect x="370" y="90" width="10" height="70" fill="var(--night-panel-2)"></rect>
+        <rect x="440" y="90" width="10" height="70" fill="var(--night-panel-2)"></rect>
+        <rect x="220" y="80" width="240" height="14" rx="2" fill="var(--night-panel-2)"></rect>
+        <rect x="235" y="30" width="210" height="52" rx="3" fill="var(--night-panel)" stroke="var(--line)"></rect>
+        <rect x="255" y="30" width="4" height="52" fill="var(--line)"></rect>
+        <rect x="295" y="30" width="4" height="52" fill="var(--line)"></rect>
+        <rect x="335" y="30" width="4" height="52" fill="var(--line)"></rect>
+        <rect x="375" y="30" width="4" height="52" fill="var(--line)"></rect>
+        <rect x="415" y="30" width="4" height="52" fill="var(--line)"></rect>
+        <polygon points="210,30 460,30 340,-4 330,-4" fill="var(--night-panel-2)" transform="translate(0,4)"></polygon>
+        <polygon points="215,32 455,32 335,4" fill="var(--night-panel-2)"></polygon>
+      </g>
+      <!-- string of lights along the roof -->
+      <g>
+        <circle cx="230" cy="14" r="6" fill="var(--gold)" opacity="0.18"></circle>
+        <circle cx="230" cy="14" r="2.4" fill="var(--gold)"></circle>
+        <circle cx="270" cy="10" r="6" fill="var(--gold)" opacity="0.18"></circle>
+        <circle cx="270" cy="10" r="2.4" fill="var(--gold)"></circle>
+        <circle cx="310" cy="7" r="6" fill="var(--gold)" opacity="0.18"></circle>
+        <circle cx="310" cy="7" r="2.4" fill="var(--gold)"></circle>
+        <circle cx="350" cy="6" r="6" fill="var(--gold)" opacity="0.2"></circle>
+        <circle cx="350" cy="6" r="2.6" fill="var(--gold)"></circle>
+        <circle cx="390" cy="8" r="6" fill="var(--gold)" opacity="0.18"></circle>
+        <circle cx="390" cy="8" r="2.4" fill="var(--gold)"></circle>
+        <circle cx="430" cy="12" r="6" fill="var(--gold)" opacity="0.18"></circle>
+        <circle cx="430" cy="12" r="2.4" fill="var(--gold)"></circle>
+        <circle cx="460" cy="18" r="6" fill="var(--gold)" opacity="0.18"></circle>
+        <circle cx="460" cy="18" r="2.4" fill="var(--gold)"></circle>
+      </g>
+    </svg>
+
+    <p class="eyebrow">Aciera · Quirós · Asturias</p>
+    <h1>La Ruta de Pegollín</h1>
+    <p class="tagline">Pegollín conoce cada casa de Aciera y lo que sus vecinos ponen cada año para la Navidad. No se esconde — te reta a encontrar doce de esas casas y a fijarte en su decoración tan bien como él.</p>
+
+    <p style="margin:18px 0 0"><span class="offline-chip" id="offlineChip">Preparando el juego para usarlo sin cobertura…</span></p>
+
+    <dl class="facts">
+      <div><dt>Encendido</dt><dd>5 dic · 18:00</dd></div>
+      <div><dt>Chocolatada</dt><dd>Para todo el que se acerque</dd></div>
+      <div><dt>Casas</dt><dd>12 por descubrir</dd></div>
+    </dl>
+  </header>
+
+  <section class="legend" aria-labelledby="legendTitle">
+    <p class="eyebrow">La leyenda</p>
+    <h2 id="legendTitle">La noche en que se apagó la Navidad</h2>
+    <p>Dicen los más viejos de Aciera que bajo cada hórreo vive un <strong>trasgu</strong>, y que son ellos, y no los <strong>pegollos</strong> de piedra, quienes sostienen el pueblo en pie. El más antiguo de todos se llama <strong>Pegollín</strong>: gorru colorado, madreñas gastadas y un candil que no se ha apagado en trescientos inviernos.</p>
+    <p>Dentro de ese candil arden las <strong>llamas de la Navidad</strong>, tantas como casas que cada diciembre se visten de luz a mano, vecino a vecino. Mientras ardan, la Navidad llega a Aciera. Si se apagan, la noche del encendido, el <strong>5 de diciembre a las 18:00</strong>, el pueblo se quedará a oscuras.</p>
+    <p>Y una madrugada, el <strong>Nuberu</strong>, señor de las nubes y las tormentas, bajó con su viento helado desde la sierra, atravesó el valle y se coló en el candil. Las llamas salieron volando y cada una se refugió donde mejor calor encontró: en <strong>lo que los vecinos de Aciera han colocado en sus casas</strong> para esta Navidad. Un adorno, una figura, una guirnalda, algo hecho a mano. Pegollín, con sus piernas cortas y sus madreñas, no puede alcanzarlas a todas a tiempo.</p>
+    <p>Por eso te necesita a ti. Cada vecino ha dejado en su casa algo distinto, y solo alguien que mire de verdad puede reconocer dónde se esconde cada llama. <strong>Cada casa que encuentres y cada detalle que descubras devolverá una llama al candil.</strong></p>
+    <p class="oath">Una noche. Un pueblo entero guardando la luz. ¿Ayudas a Pegollín a encender Aciera?</p>
+  </section>
+
+  <section class="howto">
+    <h2>Cómo se juega</h2>
+    <ol>
+      <li>Cada tarjeta trae una <strong>pista</strong> para llegar a una casa. Pulsa <strong>Ver en el plano</strong> para ver dónde está marcada y ve a buscarla, en el orden que quieras — sin entrar en fincas ni tocar la decoración de nadie, <strong>solo mirar</strong>.</li>
+      <li>Cada casa tiene un <strong>número</strong> a la vista. Cuando llegues, escríbelo en la tarjeta para abrirla: así Pegollín sabe que has estado allí.</li>
+      <li>Fíjate bien en lo que han puesto los vecinos y responde la pregunta — solo se puede acertar si te has fijado de verdad. El progreso se queda guardado en este móvil aunque cierres la página.</li>
+      <li>Al devolver todas las llamas, Pegollín te lo agradece con un mensaje y una imagen para guardar — no hace falta buscar a nadie ni validar nada.</li>
+    </ol>
+  </section>
+
+  <section class="progress" aria-live="polite">
+    <div class="lights" id="lights"></div>
+    <p class="progress-count"><b id="count">0</b>/12 encontrados</p>
+    <button class="reset" id="resetBtn" type="button">Reiniciar búsqueda</button>
+  </section>
+
+  <section class="grid" id="grid">
+    <!-- las 12 tarjetas se generan desde PEGOLLINOS más abajo -->
+  </section>
+
+  <section class="finish" id="finish" hidden>
+    <div class="finish-row" aria-hidden="true"></div>
+    <h2>¡Completaste la Ruta de Pegollín!</h2>
+    <p>Doce casas, doce adornos descubiertos. Esta pantalla es tuya — guárdala o compártela si quieres. Feliz Navidad de parte de todo el pueblo.</p>
+    <div class="final-message" id="finalMessage">
+      <h3 class="fm-title" id="fmTitle"></h3>
+      <p class="fm-body" id="fmBody"></p>
+      <p class="fm-sign">Navidad en Aciera · Quirós</p>
+    </div>
+    <div class="share-wrap">
+      <canvas id="shareCanvas" width="1080" height="1080"></canvas>
+      <button class="share-btn" id="shareBtn" type="button" disabled>Generando imagen…</button>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <details>
+      <summary>Notas para quien organice el juego</summary>
+      <p>Las doce casas, acertijos y preguntas de abajo son un <strong>ejemplo de partida</strong> — no son las casas reales todavía. El juego es sobre lo que cada vecino pone de verdad en su casa. Antes del 5 de diciembre:</p>
+      <ol>
+        <li>Recorred el pueblo y elegid las casas, con el visto bueno de cada vecino (algunos quizá prefieran no participar, y es su casa, no la nuestra).</li>
+        <li>Asignad a cada casa un <strong>número</strong> poco obvio (dos cifras, sin orden) y colgad un cartelito bien visible desde la calle con ese número. Es la prueba de que el jugador ha llegado.</li>
+        <li>Para cada casa, en el array <code>PEGOLLINOS</code>: <code>code</code> = el número del cartelito; <code>name</code> = el apodo real (se muestra al abrir la tarjeta); <code>clue</code> = el acertijo que lleva hasta la casa, sin decir su nombre ni su número.</li>
+        <li>Escribid una pregunta sobre algo que solo se ve mirando de cerca (<code>question</code>/<code>options</code>/<code>correct</code>; 0 = la primera opción, 1 = la segunda...). Dejad alguna fácil para los más pequeños y un par más difíciles.</li>
+        <li>Si en <a href="https://claude.ai/artifact/3jRdEgX2C8Q7G5sDvUj3Js">el plano de Aciera</a> usáis los mismos apodos y números, juego y plano hablarán de las mismas casas.</li>
+        <li>Publicad el enlace (o un QR a la entrada del pueblo) y ya está — el propio juego agradece al terminar, nadie tiene que validar pantallas ni repartir nada.</li>
+      </ol>
+    </details>
+    <p class="credit">Aciera, Quirós — hecho por y para el pueblo.</p>
+  </footer>
+
+</div>
+
+
+<dialog class="mapdlg" id="mapDlg" aria-labelledby="mdTitle">
+  <h3 id="mdTitle">La casa que buscas</h3>
+  <p class="md-note" id="mdNote">La casa está marcada con la estrella. Funciona sin cobertura: pulsa «¿Dónde estoy?» y el GPS del móvil te situará en el plano.</p>
+  <svg id="mdSvg" viewBox="0 0 479.5 535.8" role="img" aria-label="Plano de Aciera con la casa marcada con una estrella"></svg>
+  <div class="md-row">
+    <button type="button" class="primary" id="mdGps">📍 ¿Dónde estoy?</button>
+    <button type="button" id="mdZoom">Ver todo el pueblo</button>
+    <button type="button" id="mdClose">Cerrar</button>
+  </div>
+</dialog>
+
+<div class="install" id="installBar" role="dialog" aria-label="Añadir a la pantalla de inicio">
+  <div id="installTxt">Si quieres, puedes tener el juego como icono en tu móvil. No es necesario para jugar sin cobertura.</div>
+  <div class="ir"><button type="button" class="primary" id="installBtn">Añadir a pantalla de inicio</button><button type="button" id="installLater">Cerrar</button></div>
+</div>
+
+<script>
+(function(){
+  // Ya no hay figuras escondidas: cada parada es una CASA real del pueblo, y la pregunta
+  // es sobre su decoración de verdad. Pegollín no está ahí — es quien pregunta.
+  // Cada opción puede llevar "color" (pastilla de color, ideal para quien no lee aún)
+  // o "emoji" (dibujo del objeto). Así se puede acertar mirando, no solo leyendo.
+  // "code" = el número que verá el jugador en la casa (cartelito) y que escribe para abrir la tarjeta.
+  // "pin" = clave del pin de esa casa en plano-aciera.html (p1..p12); el botón "Ver en el plano" la marca allí.
+  // "clue" = la pista que lo lleva hasta esa casa. El nombre no se enseña hasta abrirla.
+  var PEGOLLINOS = [
+    { pin:"p1", code:"47", name:"Ca Marcé", clue:"Después de pasar el desvío al pueblo de El Llano, a mano derecha, es la segunda casa a la izquierda.",
+      question:"¿Cuántos sacos hay colgados en la fachada de la casa?",
+      options:[ {label:"Dos", emoji:"2️⃣"}, {label:"Cuatro", emoji:"4️⃣"}, {label:"Seis", emoji:"6️⃣"} ], correct:1 },
+    { pin:"p2", code:"23", name:"La casa de la cuadra", clue:"Donde cuelga el cencerro más grande, cerca de la <em>cuadra</em>.",
+      question:"¿De qué color es la estrella de la puerta?",
+      options:[ {label:"Rojo", color:"#c23b2e"}, {label:"Dorado", color:"#c99a3d"}, {label:"Azul", color:"#2c5b96"} ], correct:1 },
+    { pin:"p3", code:"68", name:"La casa de la fuente", clue:"Justo al lado de la fuente del pueblo.",
+      question:"¿Qué hay colgado en la ventana?",
+      options:[ {label:"Un farolillo", emoji:"🏮"}, {label:"Una guirnalda", emoji:"🎀"}, {label:"Un cascabel", emoji:"🔔"} ], correct:0 },
+    { pin:"p4", code:"15", name:"La casa del tejado inclinado", clue:"El <em>teyáu</em> más empinado, casi tocando las ramas de un árbol.",
+      question:"¿De qué color son las luces del tejado?",
+      options:[ {label:"Blancas", color:"#f4efe1"}, {label:"Doradas", color:"#c99a3d"}, {label:"Multicolor", emoji:"🌈"} ], correct:2 },
+    { pin:"p5", code:"82", name:"La casa del carro viejo", clue:"Tiene un <em>carru</em> de madera de adorno en la entrada, el que ya no sale al monte.",
+      question:"¿Qué lleva encima el carro?",
+      options:[ {label:"Un árbol pequeño", emoji:"🎄"}, {label:"Un muñeco de nieve", emoji:"⛄"}, {label:"Regalos", emoji:"🎁"} ], correct:0 },
+    { pin:"p6", code:"39", name:"La casa del corral de piedra", clue:"La <em>corripa</em> de piedra, el corral pequeño nada más entrar al pueblo.",
+      question:"¿Cuántas estrellas hay en la pared?",
+      options:[ {label:"Dos", emoji:"2️⃣"}, {label:"Cuatro", emoji:"4️⃣"}, {label:"Seis", emoji:"6️⃣"} ], correct:1 },
+    { pin:"p7", code:"56", name:"La casa de la farola", clue:"Junto al palu de la luz más cercano a la fuente.",
+      question:"¿De qué están hechos los renos de delante?",
+      options:[ {label:"Madera", emoji:"🪵"}, {label:"Alambre", emoji:"🔧"}, {label:"Neumáticos viejos", emoji:"🛞"} ], correct:2 },
+    { pin:"p8", code:"91", name:"La casa del corredor largo", clue:"El hórreo cuyo <em>corredor</em> da la vuelta entera a la casa.",
+      question:"¿Cuántos muñecos de nieve hay en el corredor?",
+      options:[ {label:"Uno", emoji:"1️⃣"}, {label:"Dos", emoji:"2️⃣"}, {label:"Ninguno", emoji:"0️⃣"} ], correct:0 },
+    { pin:"p9", code:"34", name:"La casa del muro bajo", clue:"El muro que sirve de banco cuando hay chocolatada.",
+      question:"¿De qué color es la guirnalda del muro?",
+      options:[ {label:"Verde", color:"#3f7d3f"}, {label:"Roja", color:"#c23b2e"}, {label:"Dorada", color:"#c99a3d"} ], correct:0 },
+    { pin:"p10", code:"71", name:"La casa de la leñera", clue:"La <em>tenada</em> donde se guarda la leña para todo el invierno.",
+      question:"¿Qué hay encima de la leña?",
+      options:[ {label:"Un gorro de Papá Noel", emoji:"🎅"}, {label:"Un búho de madera", emoji:"🦉"}, {label:"Nada, está vacía", emoji:"🚫"} ], correct:0 },
+    { pin:"p11", code:"28", name:"La casa del balcón con luces", clue:"El balcón con más hileras de luces de todo el pueblo.",
+      question:"¿De qué color son las luces del balcón?",
+      options:[ {label:"Azules", color:"#2c5b96"}, {label:"Blancas", color:"#f4efe1"}, {label:"Verdes", color:"#3f7d3f"} ], correct:1 },
+    { pin:"p12", code:"63", name:"La casa de la chocolatada", clue:"La última: mira alrededor del propio puesto de la chocolatada, no hace falta ir más lejos.",
+      question:"¿Qué hay dibujado en el cartel de la chocolatada?",
+      options:[ {label:"Una taza", emoji:"☕"}, {label:"Un gnomo", emoji:"🧙"}, {label:"Unas campanas", emoji:"🔔"} ], correct:0 }
+  ];
+
+  var STORAGE_KEY = "aciera-pegollinos-2026";
+
+  function loadState(){
+    try{
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return new Array(PEGOLLINOS.length).fill(0);
+      var parsed = JSON.parse(raw);
+      // 0 = bloqueada, 1 = abierta con el número, 2 = encontrada (acertada). Acepta el formato antiguo true/false.
+      if(Array.isArray(parsed) && parsed.length === PEGOLLINOS.length){
+        return parsed.map(function(v){ return v === true ? 2 : (v === 1 || v === 2 ? v : 0); });
+      }
+    }catch(e){}
+    return new Array(PEGOLLINOS.length).fill(0);
+  }
+  function saveState(state){
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }catch(e){}
+  }
+
+  var state = loadState();
+
+  var grid = document.getElementById("grid");
+  var lightsEl = document.getElementById("lights");
+  var countEl = document.getElementById("count");
+  var finishEl = document.getElementById("finish");
+  var resetBtn = document.getElementById("resetBtn");
+
+  // Pegollín: gorro de fieltro (currentColor, cicla de color por tarjeta), cuerpo de lana
+  // y madreñas — ver el boceto completo en boceto-pegollin.html.
+  var pegollinIcon =
+    '<svg class="pegollin-icon" viewBox="0 0 34 46" aria-hidden="true">' +
+      '<ellipse cx="17" cy="30" rx="12" ry="14" fill="#d9c49c"></ellipse>' +
+      '<rect x="6" y="40" width="9" height="4" rx="1.5" fill="#6b4a30"></rect>' +
+      '<rect x="19" y="40" width="9" height="4" rx="1.5" fill="#6b4a30"></rect>' +
+      '<path d="M9,14 C9,2 19,-2 25,7 C29,13 21,17 13,19 Z" fill="currentColor"></path>' +
+    '</svg>';
+  var pegollinSilhouette =
+    '<svg viewBox="0 0 34 46" aria-hidden="true">' +
+      '<path d="M9,14 C9,2 19,-2 25,7 C29,13 21,17 13,19 Z" fill="currentColor"></path>' +
+      '<ellipse cx="17" cy="30" rx="12" ry="14" fill="currentColor" opacity="0.9"></ellipse>' +
+      '<rect x="6" y="40" width="9" height="4" rx="1.5" fill="currentColor"></rect>' +
+      '<rect x="19" y="40" width="9" height="4" rx="1.5" fill="currentColor"></rect>' +
+    '</svg>';
+
+  PEGOLLINOS.forEach(function(g, i){
+    var card = document.createElement("article");
+    card.className = "card";
+    var optionsHtml = g.options.map(function(opt, oi){
+      var mark = opt.color
+        ? '<span class="swatch" style="background:' + opt.color + '"></span>'
+        : '<span class="opt-emoji">' + opt.emoji + '</span>';
+      return '<button class="opt" type="button" data-oi="' + oi + '">' + mark + '<span>' + opt.label + '</span></button>';
+    }).join("");
+    card.innerHTML =
+      '<div class="card-top">' + pegollinIcon +
+        '<div><div class="num"></div>' +
+        '<h3 class="card-name"></h3></div>' +
+      '</div>' +
+      '<p class="clue">' + g.clue + '</p>' +
+      '<button class="map-link" type="button" data-pin="' + g.pin + '">🗺️ Ver en el plano</button>' +
+      '<form class="lock" data-i="' + i + '" autocomplete="off">' +
+        '<label for="code' + i + '">Número de la casa</label>' +
+        '<div class="lock-row"><input id="code' + i + '" type="text" inputmode="numeric" maxlength="4" placeholder="Nº">' +
+        '<button type="submit">Abrir</button></div>' +
+        '<p class="lock-msg" aria-live="polite"></p>' +
+      '</form>' +
+      '<div class="quiz" data-i="' + i + '">' +
+        '<p class="quiz-q">' + g.question + '</p>' +
+        '<div class="options">' + optionsHtml + '</div>' +
+        '<p class="found-note" hidden>🎉 ¡Acertaste! Pegollín también se fijó en esto — <button class="undo" type="button">¿fue un error? deshacer</button></p>' +
+      '</div>';
+    grid.appendChild(card);
+  });
+
+  for(var b=0;b<PEGOLLINOS.length;b++){
+    var bulb = document.createElement("span");
+    bulb.className = "bulb";
+    bulb.innerHTML = pegollinSilhouette;
+    lightsEl.appendChild(bulb);
+  }
+
+  var cards = Array.prototype.slice.call(grid.querySelectorAll(".card"));
+  var bulbs = Array.prototype.slice.call(lightsEl.querySelectorAll(".bulb"));
+
+  var finishRow = finishEl.querySelector(".finish-row");
+  for(var fr=0; fr<5; fr++){
+    var frSpan = document.createElement("span");
+    frSpan.innerHTML = pegollinSilhouette;
+    finishRow.appendChild(frSpan);
+  }
+
+  var wasComplete = false;
+  function render(){
+    var found = 0;
+    cards.forEach(function(card, i){
+      var st = state[i];
+      var isFound = st === 2;
+      if(isFound) found++;
+      card.classList.toggle("found", isFound);
+      card.classList.toggle("locked", st === 0);
+      card.querySelector(".num").textContent = st === 0
+        ? "Casa " + String(i+1).padStart(2,"0")
+        : "Casa nº " + PEGOLLINOS[i].code;
+      card.querySelector(".card-name").textContent = st === 0 ? "¿Qué casa es?" : PEGOLLINOS[i].name;
+      card.querySelector(".lock").hidden = st !== 0;
+      card.querySelector(".quiz").hidden = st === 0;
+      card.querySelector(".options").hidden = isFound;
+      card.querySelector(".found-note").hidden = !isFound;
+      bulbs[i].classList.toggle("lit", isFound);
+    });
+    countEl.textContent = found;
+    var complete = found >= PEGOLLINOS.length;
+    finishEl.hidden = !complete;
+    if(complete && !wasComplete){
+      finishEl.classList.remove("just-complete");
+      void finishEl.offsetWidth; // reinicia la animación aunque se repita
+      finishEl.classList.add("just-complete");
+      finishEl.scrollIntoView({ behavior:"smooth", block:"center" });
+      pickMessage();
+      ensureBadge();
+    }
+    wasComplete = complete;
+  }
+
+  // --- mensaje final: uno distinto cada vez, con la firma fija en el HTML ---
+  var MESSAGES = [
+    { title:"La magia de Aciera", body:"¡Enhorabuena! Has encontrado todos los secretos que escondía Aciera. Pero el verdadero tesoro de esta Navidad es compartir momentos especiales con quienes nos acompañan. Gracias por visitarnos y formar parte de nuestra magia. ¡Feliz Navidad!" },
+    { title:"Un deseo desde Aciera", body:"Dicen que los deseos que nacen en lugares especiales viajan más lejos. Hoy has descubierto todos nuestros rincones y queremos enviarte uno: que nunca te falten motivos para sonreír. Gracias por acompañarnos. ¡Felices fiestas!" },
+    { title:"El secreto mejor guardado", body:"Has encontrado todos los objetos escondidos, pero aún queda un secreto por descubrir: la Navidad es más bonita cuando la compartimos. Gracias por traer tu ilusión a Aciera. ¡Te deseamos una Navidad llena de alegría!" },
+    { title:"Misión navideña cumplida", body:"¡Misión completada! Has demostrado tener ojos de explorador y espíritu navideño. Los secretos de Aciera ya forman parte de tus recuerdos. Gracias por participar y ayudarnos a llenar el pueblo de vida. ¡Feliz Navidad!" },
+    { title:"Un mensaje del Guardián", body:"El Guardián de los Deseos ha visto cómo recorrías Aciera buscando cada pista. Ahora que has completado tu aventura, te envía un deseo especial: que la ilusión que has sentido hoy te acompañe durante todo el año. ¡Gracias por venir!" },
+    { title:"La estrella de Aciera", body:"Cada objeto encontrado ha encendido una pequeña estrella en tu aventura. Ahora que todas brillan, queremos darte las gracias por compartir esta Navidad con nosotros. Que tu camino esté siempre lleno de luz y buenos momentos." },
+    { title:"Un pueblo que te da las gracias", body:"Puede que Aciera sea un pueblo pequeño, pero su Navidad está hecha de grandes ilusiones. Gracias por recorrer nuestras calles, descubrir sus rincones y compartir este día con nosotros. ¡Esperamos volver a verte!" },
+    { title:"Para los pequeños exploradores", body:"¡Lo conseguiste! Has encontrado todos los tesoros navideños. Los Reyes Magos estarán orgullosos de tu gran trabajo como explorador. Sigue buscando la magia en las pequeñas cosas. ¡Feliz Navidad desde Aciera!" },
+    { title:"El mejor tesoro", body:"¡Has completado la búsqueda! Entre luces, estrellas y rincones escondidos, esperamos que hayas encontrado algo más que objetos: un bonito recuerdo para compartir. Gracias por elegir Aciera esta Navidad." },
+    { title:"Hasta la próxima Navidad", body:"Tu aventura navideña ha terminado, pero las puertas de Aciera seguirán abiertas para ti. Gracias por acompañarnos, por participar y por ayudarnos a mantener viva la ilusión de nuestro pueblo. ¡Feliz Navidad y hasta pronto!" }
+  ];
+  var fmTitleEl = document.getElementById("fmTitle");
+  var fmBodyEl = document.getElementById("fmBody");
+  function pickMessage(){
+    var m = MESSAGES[Math.floor(Math.random() * MESSAGES.length)];
+    fmTitleEl.textContent = m.title;
+    fmBodyEl.textContent = m.body;
+  }
+
+  // --- imagen para compartir al completar, descargada con la capacidad "downloads" del artefacto ---
+  var shareCanvas = document.getElementById("shareCanvas");
+  var shareBtn = document.getElementById("shareBtn");
+  var badgeDrawn = false;
+  var downloadsApi; // undefined = aún resolviendo
+
+  function roundRect(c, x, y, w, h, r){
+    c.beginPath();
+    c.moveTo(x+r, y);
+    c.arcTo(x+w, y, x+w, y+h, r);
+    c.arcTo(x+w, y+h, x, y+h, r);
+    c.arcTo(x, y+h, x, y, r);
+    c.arcTo(x, y, x+w, y, r);
+    c.closePath();
+  }
+  function glowDot(c, x, y, r, color, glowOpacity){
+    c.fillStyle = color;
+    c.globalAlpha = glowOpacity;
+    c.beginPath(); c.arc(x, y, r*2.4, 0, Math.PI*2); c.fill();
+    c.globalAlpha = 1;
+    c.beginPath(); c.arc(x, y, r, 0, Math.PI*2); c.fill();
+  }
+  function drawBadgePegollin(c, x, y, scale, hat){
+    c.save();
+    c.translate(x, y);
+    c.scale(scale, scale);
+    c.fillStyle = "#d9c49c";
+    c.beginPath(); c.ellipse(17, 30, 12, 14, 0, 0, Math.PI*2); c.fill();
+    c.fillStyle = "#6b4a30";
+    roundRect(c, 6, 40, 9, 4, 1.5); c.fill();
+    roundRect(c, 19, 40, 9, 4, 1.5); c.fill();
+    c.fillStyle = hat;
+    c.fill(new Path2D("M9,14 C9,2 19,-2 25,7 C29,13 21,17 13,19 Z"));
+    c.restore();
+  }
+
+  function drawBadge(){
+    var ctx = shareCanvas.getContext("2d");
+    var W = shareCanvas.width, H = shareCanvas.height;
+    ctx.clearRect(0, 0, W, H);
+
+    var sky = ctx.createLinearGradient(0, 0, 0, H);
+    sky.addColorStop(0, "#0b1428"); sky.addColorStop(1, "#1c2c50");
+    ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
+
+    ctx.fillStyle = "#f4efe1";
+    [[110,120,2.4],[180,230,1.8],[300,90,2],[940,300,1.6],[70,400,1.6],[420,60,1.8]].forEach(function(s){
+      ctx.globalAlpha = 0.6; ctx.beginPath(); ctx.arc(s[0], s[1], s[2], 0, Math.PI*2); ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+    glowDot(ctx, 880, 160, 40, "#e8b354", 0.18);
+
+    // cinta de logro
+    ctx.save();
+    ctx.translate(150, 150);
+    ctx.rotate(-0.18);
+    ctx.fillStyle = "#e8b354";
+    roundRect(ctx, -110, -26, 220, 52, 26); ctx.fill();
+    ctx.fillStyle = "#0f1a33";
+    ctx.font = "700 24px 'IBM Plex Mono', monospace";
+    ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText("¡COMPLETADO!", 0, 2);
+    ctx.restore();
+    ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+
+    // silueta real de Aciera: pinos + hórreo + guirnalda, igual que en el resto de materiales
+    var baseY = 860;
+    ctx.fillStyle = "#182645";
+    ctx.beginPath(); ctx.moveTo(120,baseY+120); ctx.lineTo(190,baseY-30); ctx.lineTo(260,baseY+120); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(860,baseY+120); ctx.lineTo(930,baseY-40); ctx.lineTo(1000,baseY+120); ctx.closePath(); ctx.fill();
+    [430,520,610,700].forEach(function(px){ ctx.fillRect(px, baseY-40, 16, 110); });
+    roundRect(ctx, 410, baseY-58, 320, 22, 3); ctx.fill();
+    ctx.fillStyle = "#20325a";
+    roundRect(ctx, 425, baseY-150, 290, 92, 4); ctx.fill();
+    ctx.strokeStyle = "rgba(244,239,225,0.18)"; ctx.lineWidth = 2;
+    [465,510,555,600,645,690,735].forEach(function(lx){ ctx.beginPath(); ctx.moveTo(lx, baseY-150); ctx.lineTo(lx, baseY-58); ctx.stroke(); });
+    ctx.fillStyle = "#182645";
+    ctx.beginPath(); ctx.moveTo(400,baseY-150); ctx.lineTo(740,baseY-150); ctx.lineTo(570,baseY-235); ctx.closePath(); ctx.fill();
+    for(var gi=0; gi<9; gi++){
+      var gt = gi/8, glx = 420 + gt*300, gly = baseY-150 - Math.sin(gt*Math.PI)*46 - 6;
+      glowDot(ctx, glx, gly, 6, "#e8b354", 0.22);
+    }
+
+    drawBadgePegollin(ctx, 240, 560, 6.4, "#e8b354");
+
+    ctx.fillStyle = "#e8b354";
+    ctx.font = "600 26px 'IBM Plex Mono', monospace";
+    ctx.fillText("ACIERA · QUIRÓS · ASTURIAS", 70, 660);
+
+    ctx.fillStyle = "#f4efe1";
+    ctx.font = "700 86px 'Fraunces', serif";
+    ctx.fillText("¡Completé la", 66, 760);
+    ctx.fillText("Ruta de Pegollín!", 66, 850);
+
+    ctx.font = "500 28px 'Work Sans', sans-serif";
+    ctx.fillStyle = "#c7cfe2";
+    ctx.fillText("Aciera · Quirós · Diciembre 2026", 70, 898);
+
+    ctx.fillStyle = "rgba(244,239,225,0.12)";
+    ctx.fillRect(0, 980, W, 100);
+    ctx.fillStyle = "#e8b354";
+    ctx.font = "700 30px 'IBM Plex Mono', monospace";
+    ctx.textBaseline = "middle";
+    ctx.fillText("12 / 12", 70, 1030);
+    ctx.fillStyle = "#b7c0d6";
+    ctx.font = "500 22px 'Work Sans', sans-serif";
+    ctx.textAlign = "right";
+    ctx.fillText("La Ruta de Pegollín", W-70, 1030);
+    ctx.textAlign = "left";
+    ctx.textBaseline = "alphabetic";
+  }
+
+  function ensureBadge(){
+    if(badgeDrawn) return;
+    Promise.all([
+      document.fonts.load('700 86px "Fraunces"'),
+      document.fonts.load('500 28px "Work Sans"'),
+      document.fonts.load('700 30px "IBM Plex Mono"'),
+      document.fonts.load('600 26px "IBM Plex Mono"'),
+      document.fonts.load('700 24px "IBM Plex Mono"'),
+      document.fonts.load('500 22px "Work Sans"')
+    ]).catch(function(){}).then(function(){
+      drawBadge();
+      badgeDrawn = true;
+      updateShareBtn();
+    });
+  }
+
+  function useCapability(name){
+    try{
+      if(window.claude && typeof window.claude.use === "function") return window.claude.use(name);
+    }catch(e){}
+    return Promise.resolve(null);
+  }
+  function updateShareBtn(){
+    if(!badgeDrawn || downloadsApi === undefined){
+      shareBtn.disabled = true; shareBtn.textContent = "Generando imagen…";
+    } else if(!downloadsApi){
+      shareBtn.disabled = true; shareBtn.textContent = "Descarga no disponible aquí";
+    } else {
+      shareBtn.disabled = false; shareBtn.textContent = "Descargar imagen para compartir";
+    }
+  }
+  useCapability("downloads").then(function(d){
+    downloadsApi = d || {
+      save: function(o){
+        return new Promise(function(res){
+          var u = URL.createObjectURL(o.data), a = document.createElement("a");
+          a.href = u; a.download = o.filename; document.body.appendChild(a); a.click(); a.remove();
+          setTimeout(function(){ URL.revokeObjectURL(u); }, 4000); res();
+        });
+      }
+    };
+    updateShareBtn();
+  });
+
+  shareBtn.addEventListener("click", function(){
+    if(!downloadsApi) return;
+    shareCanvas.toBlob(function(blob){
+      if(!blob) return;
+      downloadsApi.save({ filename: "ruta-de-pegollin-completada.png", data: blob }).catch(function(err){
+        if(err && err.code === "declined") return;
+        shareBtn.textContent = "No se pudo guardar, prueba de nuevo";
+        setTimeout(updateShareBtn, 2200);
+      });
+    }, "image/png");
+  });
+
+  grid.addEventListener("click", function(ev){
+    var optBtn = ev.target.closest(".opt");
+    if(optBtn){
+      var quiz = optBtn.closest(".quiz");
+      var i = Number(quiz.getAttribute("data-i"));
+      var oi = Number(optBtn.getAttribute("data-oi"));
+      if(oi === PEGOLLINOS[i].correct){
+        state[i] = 2;
+        saveState(state);
+        render();
+        var foundCard = cards[i];
+        foundCard.classList.add("just-found");
+        setTimeout(function(){ foundCard.classList.remove("just-found"); }, 450);
+      } else {
+        optBtn.classList.add("wrong");
+        setTimeout(function(){ optBtn.classList.remove("wrong"); }, 350);
+      }
+      return;
+    }
+    var undoBtn = ev.target.closest(".undo");
+    if(undoBtn){
+      var quiz2 = undoBtn.closest(".quiz");
+      var i2 = Number(quiz2.getAttribute("data-i"));
+      state[i2] = 1;
+      saveState(state);
+      render();
+    }
+  });
+
+  function normCode(v){ return String(v).trim().replace(/^0+(?=\d)/, "").toLowerCase(); }
+  grid.addEventListener("submit", function(ev){
+    var form = ev.target.closest(".lock");
+    if(!form) return;
+    ev.preventDefault();
+    var i = Number(form.getAttribute("data-i"));
+    var input = form.querySelector("input");
+    var msg = form.querySelector(".lock-msg");
+    if(normCode(input.value) === normCode(PEGOLLINOS[i].code)){
+      state[i] = 1;
+      saveState(state);
+      input.value = ""; msg.textContent = "";
+      render();
+      cards[i].classList.add("just-found");
+      setTimeout(function(){ cards[i].classList.remove("just-found"); }, 450);
+    } else {
+      msg.textContent = "Ese número no es el de esta casa. Repasa la pista, mira el plano y busca bien el cartel.";
+      input.classList.add("wrong");
+      setTimeout(function(){ input.classList.remove("wrong"); }, 350);
+    }
+  });
+
+  var confirming = false;
+  resetBtn.addEventListener("click", function(){
+    if(!confirming){
+      confirming = true;
+      resetBtn.textContent = "¿Seguro? Toca de nuevo";
+      setTimeout(function(){ confirming = false; resetBtn.textContent = "Reiniciar búsqueda"; }, 3000);
+      return;
+    }
+    confirming = false;
+    state = new Array(PEGOLLINOS.length).fill(0);
+    saveState(state);
+    resetBtn.textContent = "Reiniciar búsqueda";
+    render();
+  });
+
+  render();
+})();
+</script>
+
+<script>
+(function(){
+  var VW = 479.5, VH = 535.8;
+  var BUILDINGS = [
+    "219.5,312.7 225.8,307.4 231.3,315.4 230.3,316.2 230.9,317.1 227.4,319.1 224.2,320.8 220.2,320.9 218.9,316.2 220.8,314.6 219.5,312.7",
+    "208.4,300.3 211.1,290.9 218.5,293.6 223.2,295.4 220.7,305.3 215.5,304.2 216,301.9 214.8,301.7 214.4,306.7 207.2,303.8 208.4,300.3",
+    "201.3,435.2 205.4,429.1 212.9,433.7 220.1,438.3 216.8,443.6 212.5,441.5 209.3,445.1 206.9,443.8 209.8,440.1 208.9,439.7 201.3,435.2",
+    "183.3,261.4 183.8,255.3 190.8,255.8 194.4,256 199,257.1 197.9,260.5 197,264.1 195.8,263.9 195.5,267.6 189.6,266.5 184.3,264.4 183.3,261.4",
+    "230.3,287.2 230.9,284.4 236.5,279.4 237.5,280.4 240.2,282.9 242.1,284.4 244.4,285.4 237.9,291.6 235.3,293.3 232.1,293.2 230.8,289.9 230.3,287.2",
+    "267.2,210.3 269.5,207.8 269.9,208.3 275,203.3 278.3,206.5 282.9,211.5 285.7,214.5 289.6,218.7 285.5,223.3 281.5,219.2 278.6,216.3 273.8,211.5 273.5,211.9 273.1,211.6 270.8,214.2 267.2,210.3",
+    "238.2,224.2 243.4,221.7 248.6,219.2 248.9,219.8 251,219.5 251.8,221.5 249.7,221.7 251.3,225.3 252.7,228.6 253.2,228.4 259,239.4 252,243.2 248,234.8 241.6,238.8 239.2,235.3 242.9,233.3 238.2,224.2",
+    "241.6,272.9 241.8,270.4 243.4,266.7 247.3,262.1 249.2,260 249.7,258.7 250.3,257.9 251.9,256.9 253.5,257.4 254.9,258.4 257.9,263.2 257.3,265.9 255.6,268.6 253.7,270.6 247,277.5 243.8,274.3 241.6,272.9",
+    "246.6,351.4 245.6,351 240.5,347.9 243.7,341.7 248.8,344 251.7,345.8 251.5,346.4 258.5,351.1 255.1,357.7 254.2,357.1 253.6,358.2 251.5,356.8 250.9,358.4 248.8,361.7 245.8,360.5 242.7,358.5 244.1,355.1 246.6,351.4",
+    "151.9,229.5 151.3,229.4 151.6,223.9 162.2,224 166,224.3 170.5,224.7 169.7,229.2 171.8,229.6 171.4,232 169.3,231.7 165.2,231.4 165.2,232.4 161.5,232.2 161,237.8 154.7,237.2 154.8,236.2 152.7,236 153,233.1 152,233.1 151.9,229.5",
+    "217.9,332.6 229.3,327.6 232.7,334.3 237.6,332.2 238.7,334.2 237.4,334.8 239.5,339.2 233.4,341.6 231.6,337.9 229.4,338.1 226,340.2 226.7,341.1 223.3,343.1 217.9,332.6",
+    "183.3,411.3 185.3,402.4 192.5,404.1 191.5,407.4 194,407.8 202.6,409 203.3,409.1 202.5,414.9 202.3,416.4 203.5,416.5 203.1,419.6 202.8,421.5 203.1,423.6 202.6,426.3 198.8,426.2 198.4,429.1 186.3,427.2 187.3,419.3 188.4,412.2 183.3,411.3",
+    "256,254.6 261.6,248.5 265.3,244.8 266.5,244 271,241 272.5,239.7 274.7,237.9 277.8,237.8 279.5,239.2 281.2,239.9 278.7,245 282,247.7 280.6,249.9 276.2,253.8 274.4,251.4 271.6,253.8 271,255 268.5,257.1 263.4,261.5 259.8,258.1 256,254.6",
+    "236.9,210.7 242.2,204.6 242.5,204.9 243.1,204 241,202.3 245.3,196.4 249.1,199.7 248.5,200.5 253.6,205 256.6,201.2 261.8,205.2 258.8,209.4 259.7,210.2 255.7,215.1 255.2,215.6 255.5,216 253,218.9 251.6,217.8 251.3,218.2 247.6,214.8 248.3,214 245.2,211.3 242,215.1 236.9,210.7",
+    "201.9,382.7 206.8,381.7 212,381 212,380.8 212.7,380.7 216.4,380.1 218.7,379.8 222.5,379.2 222.7,379.2 223.6,379.1 224.3,382.2 226,382 226.2,382.9 226.4,383.7 226.4,383.9 226.5,384.1 226.5,384.4 223.8,385.1 217.8,386.6 213.3,387.6 208.3,389.1 206.7,389.5 203.6,390.2 201.9,382.7",
+    "219.5,258 223.1,256.9 227.2,257.2 230.9,255.3 231,255.6 232.6,254.7 233.3,255.9 231.8,256.9 233.5,259.8 235.3,262.9 237.9,259.3 241.5,261.9 238.4,267 240.2,269.2 234,273.2 235.6,276.1 229.2,280.1 224.2,278.5 224.4,273.9 227.8,273.3 228.1,272.1 225.3,272.8 224.4,269.1 229.3,267.3 224.4,259.1 220.1,260.3 219.5,258",
+    "204.7,270.4 207.9,259.9 208,259.9 208.6,260.1 212.5,261.2 212.6,261.2 212.8,261.2 213,261.1 213.1,261.1 213.3,261.1 213.5,261.1 213.7,261.2 213.9,261.2 214,261.3 214.2,261.4 214.4,261.5 214.5,261.6 214.7,261.7 214.8,261.8 214.9,262 215.3,262.1 215.4,262.1 212.4,272.2 212.3,272.7 208.1,271.4 205.1,270.5 204.8,270.4 204.7,270.4",
+    "194.1,250.4 197.7,247.8 200.9,246.1 202.9,245.6 207.7,244.3 207.7,244.7 211.3,243.3 215,241.5 215.6,241.2 218.5,240 220.7,238.9 220.3,238.2 227,233.7 231,240.6 231.8,242 232.2,242.7 229.5,245 230.1,246.1 226.3,248.7 225.4,247.3 220.3,250.7 215.1,254.2 215,253.6 207.8,254.3 203.4,254.8 203.3,254.1 199.4,254.7 199.7,253.6 198.7,253.5 195.6,253.4 194.1,250.4",
+    "243.4,300.1 240.4,298.3 244.6,291.7 246.9,288 255.3,293.5 254.5,294.7 260.2,299.1 267.7,305.6 272.3,309.6 273.2,308.5 274,309.3 273.7,311.2 268.3,316.9 266.1,317.3 264.2,315.5 261.9,313.4 258.1,317.5 260.4,319.7 256.8,323.4 252.1,325.3 251.1,321.6 251.9,318 255.2,314.9 255.5,315.2 257.1,313.2 260.7,312.2 255,307 255.6,305.7 254.7,305.1 253.6,307.2 250.5,305 251.6,303.1 249.8,301.9 248.9,303.2 243.4,300.1",
+    "238.8,205.2 236.9,203.9 239.1,200.9 240.9,202.3 238.8,205.2",
+    "281.1,244.2 284.8,240.5 288.7,244.1 285.2,247.8 281.1,244.2",
+    "213.7,404.4 215.7,399.7 219.4,401.2 217.1,406 213.7,404.4",
+    "271.4,314 275.4,310.1 278.3,312.9 272.6,315.5 271.4,314",
+    "259.7,317.4 260.7,316.1 262.7,318.1 261.6,319.4 259.7,317.4",
+    "238.1,433.9 241.1,429.8 246.8,433.9 243.8,438.1 238.1,433.9",
+    "220,355.9 223.6,353.3 226.5,357.1 222.8,360 220,355.9",
+    "232.7,248.3 234.3,242.8 239.3,244.5 237.7,249.7 232.7,248.3",
+    "97.9,267 98.8,274.2 90.9,275.1 90,267.9 97.9,267",
+    "159,247.6 158.6,243.1 163.6,242.6 163.8,247.3 159,247.6",
+    "250.5,443.2 252.7,440.8 255.6,443.4 253.4,445.8 250.5,443.2",
+    "322.5,256.7 334.9,257.1 334.8,261.1 322.4,260.7 322.5,256.7",
+    "185.7,400.4 186.9,395.7 192,396.9 190.8,401.6 185.7,400.4",
+    "170.8,252.8 171.6,248.3 177,250.1 175.7,254.1 170.8,252.8",
+    "204.3,413.5 210.2,413.1 210.5,418.7 204.7,419.1 204.3,413.5",
+    "107.7,243.9 115.9,242.9 116.8,250.1 108.7,251 107.7,243.9",
+    "388.8,204.3 382.8,204.5 382.5,197.6 388.5,197.4 388.8,204.3",
+    "230.4,90 234.8,92.7 229.1,101.9 224.7,99.2 230.4,90",
+    "190.6,276.4 196,276.2 195.9,281.5 190.7,281.4 190.6,276.4",
+    "253.3,224.7 257.5,221.8 262.6,229.2 258.4,232.1 253.3,224.7",
+    "226.1,296.8 230.7,295.9 231.5,300.8 227,301.6 226.1,296.8",
+    "119.6,244.8 122.3,243.8 122.9,245.2 120.2,246.2 119.6,244.8",
+    "206.3,341.4 213.9,335.9 217.7,341.3 209.9,346.5 206.3,341.4",
+    "244.5,313.8 247.4,309 252.3,311.7 249.4,316.7 244.5,313.8",
+    "375.5,162.3 379.9,161 381.3,165.8 376.9,167.1 375.5,162.3",
+    "258.1,219.2 260.3,213.6 265.8,215.8 263.7,221.4 258.1,219.2",
+    "185.5,431 186.1,428.4 188.2,428.7 187.7,431.4 185.5,431",
+    "217.5,287.4 220,282.3 225.2,284.5 222.6,289.9 217.5,287.4",
+    "292.8,246.1 296.6,245.4 297.1,248.3 293.4,249.1 292.8,246.1",
+    "234.7,315.4 236.9,314.3 237.7,315.8 235.4,316.8 234.7,315.4",
+    "343.9,254.5 345.1,251 353.9,253.8 352.8,257.3 343.9,254.5",
+    "300.1,224.6 302.3,223.7 304,227.5 301.7,228.4 300.1,224.6",
+    "210.7,283.1 212.6,277.9 217.2,279.7 215.9,284.9 210.7,283.1",
+    "198.8,284 200.9,275.5 206,276.7 204,285.4 198.8,284",
+    "229.8,202.1 225.3,206.6 222,203.6 226.7,199.1 229.8,202.1",
+    "207.1,216.5 211.3,215.9 211.7,219.1 207.5,219.8 207.1,216.5",
+    "115.4,234.1 115.4,231.3 120.4,231.4 120.5,234 115.4,234.1",
+    "388.5,197.4 382.5,197.6 382.2,188.6 389.1,188.3 389.5,197.4 388.5,197.4",
+    "193,285.8 196,283.4 198.2,286.3 196.2,287.9 194.4,287.6 193,285.8",
+    "309.9,216.9 318.5,214.9 320.6,224.1 312,226 311.2,222.6 309.9,216.9",
+    "184.1,393.2 185.4,386 192.3,386.9 192.1,390.9 192.3,394.4 184.1,393.2",
+    "257,201.1 259.3,193 267.2,195.2 264.9,204.2 261.3,202.3 260.9,203.2 257,201.1",
+    "183.6,443 185.1,433.5 195.1,435.8 192.9,444.7 183.6,443",
+    "227.7,175.9 231.6,170.7 234.5,173.1 231.7,177 233.4,178.1 231.2,181.1 227.7,175.9",
+    "186.4,336 189.3,335.9 194.7,335.8 194.9,340.9 189.4,341 186.6,341 186.4,336",
+    "208.6,169.5 207.8,170.2 205.1,166.8 208.4,163.9 211.3,167.3 210.6,167.8 212.4,170.1 210.4,171.8 208.6,169.5",
+    "237.8,328.2 235.2,322.7 239.6,320.1 243.6,317.7 246.9,323.6 242.9,325.9 242.6,325.4 237.8,328.2",
+    "251.6,283.4 255.9,277.3 259.6,271.4 263.3,265.6 269.4,270.4 266.3,274.9 262,281.2 257.6,287 251.6,283.4",
+    "212.4,356.5 202.9,358.5 203.5,361.5 201.8,361.8 203.6,370.5 214.9,368.1 212.4,356.5"
+  ];
+  var ROADS = [
+    {type:"residential", pts:"234.8,434 227.1,431.5 221.9,425.1 217.3,418.9 214.3,415.2 209.7,409.6 205.6,406.2 204,403.8 203.5,400.2 210.2,398.9 217.2,396.6 223.8,394.8"},
+    {type:"residential", pts:"243.2,250.6 227.3,253.5 215.4,256.1 206.4,256.9 193.9,253.6 181.7,251"},
+    {type:"residential", pts:"191.9,349.4 197.3,378.9 211.1,377.8 226.4,375.3"},
+    {type:"residential", pts:"214.7,322.4 218.5,312.1 223.5,305.1 224.9,292.3 225.7,290.5 228.6,283.7 239.4,273.8 244.1,262 243.2,250.6 237.9,239.5 233.1,225.7 232.6,224.7 228.9,215.7 231.1,204.8"},
+    {type:"residential", pts:"215.4,256.1 216.6,261.6 213.9,273.1 216.8,275.8 228.6,283.7"},
+    {type:"residential", pts:"223.5,305.1 234,300.6 236.3,297.9 242.2,290.9 256.3,271.9 265.3,262.3 277.6,255.4 285.8,249.7 293.5,242.5 299,242.2"},
+    {type:"unclassified", pts:"175.6,260.5 163.9,262.2 152.9,267.5 134.9,280.7 128,283.9 120.9,284.1 109.4,283.3 101.9,284.8 82.9,286.7 75.8,286.5 68.3,284.7 57.5,280.2 51.2,282 39.8,289.9 29.9,296.6 20,304.7 10,318.9"},
+    {type:"residential", pts:"215.6,325.3 228.7,323.1 233.4,324.1 237.6,331.1 242.9,336.7 241.1,343.6 237,355.5 232.1,364 226.4,375.3 227.5,383.5 225.6,390.4 223.8,394.8 221.3,401.3 215.6,411 214.3,415.2 211.2,422.8 206.3,426.6 198.8,434.9 195.1,447 191.4,453.2 185.3,456.6 151.1,458.2 129.1,457.3 113.1,455.3"},
+    {type:"service", pts:"210.6,316.8 198.9,321.6 173.3,320.4"},
+    {type:"residential", pts:"242.9,336.7 249.3,330.6 250.1,323.3 249.8,319.3 255,310.8 236.3,297.9"},
+    {type:"service", pts:"249.3,330.6 262,325 292.4,309.4 318.6,294.6 336.3,283.3 347.3,277.2 362,270.3 370.7,262.4 377.8,257.1 382.1,249 389,230.2 390.5,221.2 390.5,212.6 391.2,206.2 391.4,189.1"},
+    {type:"service", pts:"370.7,262.4 362.8,257.6 357.7,254.5 344.8,249.2 332.6,245.8 321.1,245.3 312.4,245 304.8,242.3 299,242.2"},
+    {type:"tertiary", pts:"140.1,530.7 129.7,503.9 121,472 113.1,455.3 100.9,426.7 93.7,394.6 94.3,388 98.6,382.9 109,381 125,380.2 164.7,365.1 180.9,358.4 191.9,349.4 213.3,328.6 215.6,325.3 214.7,322.4 210.6,316.8 189.2,287 179.7,274.8 177,268.2 175.6,260.5 178,255.3 181.7,251 185.9,247 202.4,234.5 217.2,226.4 231.1,204.8 236.6,194 244.3,169.7 247.9,141.7 250.6,119.4 259.2,63.6 270,25.1 468.3,15.3 473.4,32.3"},
+    {type:"residential", pts:"243.2,250.6 256,245.7 267.9,239.5 275.5,236.1 287.3,238.1 290.9,240.7 293.5,242.5"},
+    {type:"footway", pts:"290.9,240.7 292.9,233.4 292.1,223.4 289.4,209.9 283.4,201.9 274,196.8 270.2,196.1 268.2,197.2 267,202.8 263.9,208.1 260.4,211.9 257.3,215.9 254,219.9 250.8,218.6 247.9,217.1 243.7,217.6 238.1,220.5 232.6,224.7"},
+    {type:"residential", pts:"236.3,297.9 225.7,290.5"},
+    {type:"track", pts:"128.8,211.1 126.4,220.6 129.8,233.8 152.9,267.5"}
+  ];
+  var LANDMARKS = [
+    { label:"El Rincón de Aceria", kind:"restaurante", x:247.1, y:301 },
+    { label:"Casa n.º 30", kind:"casa numerada", x:230, y:287.2 },
+    { label:"Casa n.º 39", kind:"casa numerada", x:256.7, y:201.1 }
+  ];
+  var PINS = [
+    { key:"entrada",  label:"Entrada",     special:true,  x:93.7,  y:394.6 },
+    { key:"p1",  label:"Casa 01", n:1,  x:129.1, y:457.3 },
+    { key:"p2",  label:"Casa 02", n:2,  x:234.8, y:434.0 },
+    { key:"p3",  label:"Casa 03", n:3,  x:221.3, y:401.3 },
+    { key:"p4",  label:"Casa 04", n:4,  x:217.2, y:396.6 },
+    { key:"p5",  label:"Casa 05", n:5,  x:226.4, y:375.3 },
+    { key:"p6",  label:"Casa 06", n:6,  x:228.7, y:323.1 },
+    { key:"p7",  label:"Casa 07", n:7,  x:249.3, y:330.6 },
+    { key:"p8",  label:"Casa 08", n:8,  x:234.0, y:300.6 },
+    { key:"p9",  label:"Casa 09", n:9,  x:225.7, y:290.5 },
+    { key:"p10", label:"Casa 10", n:10, x:237.9, y:239.5 },
+    { key:"p11", label:"Casa 11", n:11, x:312.4, y:245.0 },
+    { key:"p12", label:"Casa 12", n:12, x:389.0, y:230.2 },
+    { key:"chocolatada", label:"Chocolatada", special:true, x:238, y:256 }
+  ];
+  var BTYPES = { 4:"house", 15:"house", 60:"house", 38:"barn", 39:"barn", 44:"barn" };
+  var LAT0 = 43.2041070, LON0 = -6.0077236, R = 111320, COS = Math.cos(LAT0*Math.PI/180), X0 = -238, Y0 = -256;
+  var NS = "http://www.w3.org/2000/svg";
+  var dlg = document.getElementById("mapDlg"), svg = document.getElementById("mdSvg");
+  var gpsBtn = document.getElementById("mdGps"), zoomBtn = document.getElementById("mdZoom"), note = document.getElementById("mdNote");
+  var gpsG, pinsG, watchId = null, zoomed = true, target = null;
+  var NOTE0 = note.textContent;
+  function el(tag, attrs, parent){ var e = document.createElementNS(NS, tag); for(var k in attrs) e.setAttribute(k, attrs[k]); if(parent) parent.appendChild(e); return e; }
+  var rcls = { residential:"res", service:"res", unclassified:"main", tertiary:"main", footway:"min", track:"min" };
+  var built = false;
+  function build(){
+    if(built) return; built = true;
+    BUILDINGS.forEach(function(p, i){ el("polygon", { points:p, "class":"b" + (BTYPES[i] ? " " + BTYPES[i] : "") }, svg); });
+    ROADS.forEach(function(r){ el("polyline", { points:r.pts, "class":"rd " + (rcls[r.type] || "min") }, svg); });
+    LANDMARKS.forEach(function(l){ var g = el("g", { "class":"lm" }, svg); el("circle", { cx:l.x, cy:l.y, r:3 }, g); var t = el("text", { x:l.x+6, y:l.y+2.5 }, g); t.textContent = l.label; });
+    pinsG = el("g", {}, svg); gpsG = el("g", {}, svg);
+  }
+  function drawPins(){
+    pinsG.innerHTML = "";
+    PINS.forEach(function(p){
+      if(p.special){
+        var g = el("g", { "class":"sp", transform:"translate(" + p.x + "," + p.y + ")" }, pinsG);
+        el("circle", { r:8 }, g); var t = el("text", {}, g); t.textContent = p.key === "entrada" ? "E" : "C";
+      } else if(target && p.key === target.key){
+        var h = el("g", { transform:"translate(" + p.x + "," + p.y + ")" }, pinsG);
+        el("circle", { "class":"pin-pulse", r:9 }, h); el("circle", { "class":"pin-dot", r:9 }, h);
+        var s = el("text", { "class":"pin-star" }, h); s.textContent = "★";
+      }
+    });
+  }
+  function setView(){
+    if(!zoomed || !target){ svg.setAttribute("viewBox", "0 0 " + VW + " " + VH); zoomBtn.textContent = "Acercar a la casa"; return; }
+    var w = 170, h = w * VH / VW;
+    var x = Math.min(Math.max(target.x - w/2, 0), VW - w), y = Math.min(Math.max(target.y - h/2, 0), VH - h);
+    svg.setAttribute("viewBox", x + " " + y + " " + w + " " + h);
+    zoomBtn.textContent = "Ver todo el pueblo";
+  }
+  function gpsOff(){
+    if(watchId !== null){ navigator.geolocation.clearWatch(watchId); watchId = null; }
+    if(gpsG) gpsG.innerHTML = "";
+    gpsBtn.textContent = "📍 ¿Dónde estoy?"; note.textContent = NOTE0;
+  }
+  function openMap(key){
+    build();
+    target = PINS.filter(function(p){ return p.key === key; })[0] || null;
+    zoomed = true; drawPins(); setView();
+    if(!dlg.open) dlg.showModal();
+  }
+  document.addEventListener("click", function(ev){
+    var b = ev.target.closest(".map-link");
+    if(b) openMap(b.getAttribute("data-pin"));
+  });
+  zoomBtn.addEventListener("click", function(){ zoomed = !zoomed; setView(); });
+  document.getElementById("mdClose").addEventListener("click", function(){ dlg.close(); });
+  dlg.addEventListener("close", gpsOff);
+  gpsBtn.addEventListener("click", function(){
+    if(watchId !== null){ gpsOff(); return; }
+    if(!("geolocation" in navigator)){ note.textContent = "Este móvil no permite usar el GPS aquí."; return; }
+    gpsBtn.textContent = "Localizando…";
+    watchId = navigator.geolocation.watchPosition(function(pos){
+      var wx = (pos.coords.longitude - LON0) * COS * R - X0, wy = -(pos.coords.latitude - LAT0) * R - Y0;
+      gpsBtn.textContent = "Ocultar mi posición";
+      gpsG.innerHTML = "";
+      if(wx < -40 || wx > VW + 40 || wy < -40 || wy > VH + 40){
+        note.textContent = "Ahora mismo estás fuera del plano del pueblo."; return;
+      }
+      note.textContent = NOTE0;
+      el("circle", { "class":"gps-ring", cx:wx, cy:wy, r:9 }, gpsG); el("circle", { "class":"gps-dot", cx:wx, cy:wy, r:4.5 }, gpsG);
+    }, function(){
+      watchId = null; gpsBtn.textContent = "📍 ¿Dónde estoy?";
+      note.textContent = "No se pudo acceder al GPS. Comprueba que has dado permiso de ubicación a este navegador.";
+    }, { enableHighAccuracy:true, maximumAge:5000, timeout:20000 });
+  });
+})();
+
+// --- instalación y modo sin conexión ---
+(function(){
+  var bar = document.getElementById("installBar"), txt = document.getElementById("installTxt");
+  var btn = document.getElementById("installBtn"), later = document.getElementById("installLater");
+  var chip = document.getElementById("offlineChip"), deferred = null, KEY = "aciera-instalar-oculto";
+  var standalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+  var ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  var hidden = false; try{ hidden = localStorage.getItem(KEY) === "1"; }catch(e){}
+  function show(){ if(!standalone && !hidden) bar.style.display = "block"; }
+  window.addEventListener("beforeinstallprompt", function(e){ e.preventDefault(); deferred = e; show(); });
+  window.addEventListener("appinstalled", function(){ bar.style.display = "none"; });
+  if(ios && !standalone){
+    txt.innerHTML = "Si quieres tener el juego como icono: pulsa <b>Compartir</b> en Safari y luego <b>Añadir a pantalla de inicio</b>. No es necesario para jugar sin cobertura.";
+    btn.style.display = "none"; later.textContent = "Cerrar"; show();
+  }
+  btn.addEventListener("click", function(){
+    if(!deferred) return; deferred.prompt(); deferred.userChoice.then(function(){ deferred = null; bar.style.display = "none"; });
+  });
+  later.addEventListener("click", function(){ bar.style.display = "none"; try{ localStorage.setItem(KEY, "1"); }catch(e){} });
+  if("serviceWorker" in navigator){
+    navigator.serviceWorker.register("sw.js").then(function(){ return navigator.serviceWorker.ready; }).then(function(){
+      chip.textContent = "✓ Ya puedes jugar sin cobertura. No hace falta instalar nada"; chip.classList.add("ready");
+    }).catch(function(){ chip.textContent = "Sin modo offline en este navegador"; });
+  } else { chip.textContent = "Sin modo offline en este navegador"; }
+})();
+</script>
+</body>
+</html>
