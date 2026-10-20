@@ -250,7 +250,7 @@
   .legend .eyebrow{ text-align:center; }
   .legend h2{ font-size:clamp(24px,5vw,31px); font-weight:600; text-align:center; margin-bottom:18px; }
   .legend p{ margin:0 0 14px; font-size:15.5px; line-height:1.7; color:var(--ink-dim); }
-  .legend p:first-of-type::first-letter{
+  .legend p.first::first-letter{
     font-family:"Fraunces", Georgia, serif; font-size:3.1em; font-weight:700;
     color:var(--gold); float:left; line-height:.85; padding:4px 8px 0 0;
   }
@@ -646,14 +646,14 @@
 
     <p class="eyebrow">Aciera · Quirós · Asturias</p>
     <h1>La Ruta de Pegollín</h1>
-    <p class="tagline">Pegollín conoce cada casa de Aciera y lo que sus vecinos ponen cada año para la Navidad. No se esconde — te reta a encontrar doce de esas casas y a fijarte en su decoración tan bien como él.</p>
+    <p class="tagline">El Nuberu ha soplado y las llamas del candil de Pegollín se han perdido por Aciera, escondidas entre los adornos de las casas. Ayúdale a encontrarlas y a devolver la luz al pueblo.</p>
 
     <p style="margin:18px 0 0"><span class="offline-chip" id="offlineChip">Preparando el juego para usarlo sin cobertura…</span></p>
 
     <dl class="facts">
       <div><dt>Encendido</dt><dd>5 dic · 18:00</dd></div>
       <div><dt>Chocolatada</dt><dd>Para todo el que se acerque</dd></div>
-      <div><dt>Casas</dt><dd>12 por descubrir</dd></div>
+      <div><dt>Llamas</dt><dd>12 por recuperar</dd></div>
     </dl>
   </header>
 
@@ -662,7 +662,7 @@
     <h2 id="legendTitle">La noche en que se apagó la Navidad</h2>
     <p class="skip"><a href="#pistas">Saltar a las pistas ↓</a></p>
 
-    <p>Cuentan los más viejos de Aciera que bajo los hórreos del pueblo viven unos pequeños seres traviesos llamados <strong>trasgos</strong>. Cuando el pueblo duerme, salen a cuidar las casas y los caminos para que nunca falte la magia en Aciera.</p>
+    <p class="first">Cuentan los más viejos de Aciera que bajo los hórreos del pueblo viven unos pequeños seres traviesos llamados <strong>trasgos</strong>. Cuando el pueblo duerme, salen a cuidar las casas y los caminos para que nunca falte la magia en Aciera.</p>
     <p>El más especial de todos se llama <strong>Pegollín</strong>: lleva un gorru colorado, unas madreñas gastadas de recorrer las caleyas y un viejo candil que lleva más de trescientos inviernos sin apagarse.</p>
     <p>Dentro del candil guarda <strong>las llamas de la Navidad de Aciera</strong>, pequeñas luces que nacen cada diciembre cuando los vecinos adornan sus casas. Mientras el candil siga encendido, la magia seguirá viva.</p>
 
@@ -696,7 +696,7 @@
 
   <section class="progress" aria-live="polite">
     <div class="lights" id="lights"></div>
-    <p class="progress-count"><b id="count">0</b>/12 llamas en el candil</p>
+    <p class="progress-count"><b id="count">0</b>/<span id="total">12</span> llamas en el candil</p>
     <button class="reset" id="resetBtn" type="button">Reiniciar búsqueda</button>
   </section>
 
@@ -708,7 +708,7 @@
     <div class="finish-row" aria-hidden="true"></div>
     <span class="guardian">Guardián de la Luz de Aciera</span>
     <h2>¡Has devuelto todas las llamas!</h2>
-    <p>El candil de Pegollín vuelve a brillar con las doce llamas. A partir de hoy eres <strong>Guardián de la Luz de Aciera</strong>. Guarda tu reconocimiento o compártelo si quieres.</p>
+    <p>El candil de Pegollín vuelve a brillar con todas sus llamas. A partir de hoy eres <strong>Guardián de la Luz de Aciera</strong>. Guarda tu reconocimiento o compártelo si quieres.</p>
     <div class="final-message" id="finalMessage">
       <p class="fm-label">Un mensaje de los vecinos de Aciera</p>
       <h3 class="fm-title" id="fmTitle"></h3>
@@ -732,14 +732,14 @@
   <footer class="foot">
     <details>
       <summary>Notas para quien organice el juego</summary>
-      <p>Las doce casas, acertijos y preguntas de abajo son un <strong>ejemplo de partida</strong> — no son las casas reales todavía. El juego es sobre lo que cada vecino pone de verdad en su casa. Antes del 5 de diciembre:</p>
+      <p>Las casas, pistas y preguntas de abajo son un <strong>ejemplo</strong> — no son las casas reales todavía. El juego es sobre lo que cada vecino pone de verdad en su casa. Antes del 5 de diciembre:</p>
       <ol>
-        <li>Recorred el pueblo y elegid las casas, con el visto bueno de cada vecino (algunos quizá prefieran no participar, y es su casa, no la nuestra).</li>
-        <li>Asignad a cada casa un <strong>número</strong> poco obvio (dos cifras, sin orden) y colgad un cartelito bien visible desde la calle con ese número. Es la prueba de que el jugador ha llegado.</li>
-        <li>Para cada casa, en el array <code>PEGOLLINOS</code>: <code>code</code> = el número del cartelito; <code>name</code> = el apodo real (se muestra al abrir la tarjeta); <code>clue</code> = el acertijo que lleva hasta la casa, sin decir su nombre ni su número.</li>
-        <li>Escribid una pregunta sobre algo que solo se ve mirando de cerca (<code>question</code>/<code>options</code>/<code>correct</code>; 0 = la primera opción, 1 = la segunda...). Dejad alguna fácil para los más pequeños y un par más difíciles.</li>
-        <li>Si en <a href="https://claude.ai/artifact/3jRdEgX2C8Q7G5sDvUj3Js">el plano de Aciera</a> usáis los mismos apodos y números, juego y plano hablarán de las mismas casas.</li>
-        <li>Publicad el enlace (o un QR a la entrada del pueblo) y ya está — el propio juego agradece al terminar, nadie tiene que validar pantallas ni repartir nada.</li>
+        <li>Apuntad <strong>todas las casas que quieran participar</strong>, no solo 12: cada visitante verá 12 elegidas al azar, y así participan todos los vecinos y la ruta cambia de una persona a otra. Con el visto bueno de cada vecino (algunos quizá prefieran no participar).</li>
+        <li>Asignad a cada casa un <strong>número</strong> poco obvio (dos cifras, sin orden, sin repetir) y colgad un cartelito bien visible desde la calle. Es la prueba de que el jugador ha llegado.</li>
+        <li>Cada casa es una entrada del array <code>POOL</code>: <code>pin</code> = su pin en el plano (p1, p2, p3…), <code>code</code> = el número del cartelito, <code>name</code> = el apodo (se muestra al abrir la tarjeta), <code>clue</code> = la pista para llegar sin decir el nombre ni el número.</li>
+        <li>Escribid una pregunta sobre algo que solo se ve mirando de cerca (<code>question</code>/<code>options</code>/<code>correct</code>; 0 = la primera opción, 1 = la segunda...). Dejad alguna fácil para los más pequeños y algunas más difíciles.</li>
+        <li>Cada casa necesita su pin en el plano (<code>plano-aciera.html</code>) con la misma clave. Cuántas casas se enseñan a cada visitante se cambia con <code>PER_GAME</code> (ahora 12).</li>
+        <li>Si cambiáis casas o números, el juego vuelve a sortear solo y las partidas empiezan de cero. Avisad antes de lanzar, para no cambiarlo cuando ya haya gente jugando.</li>
       </ol>
     </details>
     <p class="credit">Aciera, Quirós — hecho por y para el pueblo.</p>
@@ -779,7 +779,9 @@
   // "code" = el número que verá el jugador en la casa (cartelito) y que escribe para abrir la tarjeta.
   // "pin" = clave del pin de esa casa en plano-aciera.html (p1..p12); el botón "Ver en el plano" la marca allí.
   // "clue" = la pista que lo lleva hasta esa casa. El nombre no se enseña hasta abrirla.
-  var PEGOLLINOS = [
+  // POOL = TODAS las casas que participan (pueden ser más de 12). A cada visitante le toca una selección
+  // distinta de PER_GAME casas al azar, que se queda guardada en su móvil. Cada casa necesita un "code" único.
+  var POOL = [
     { pin:"p1", code:"47", name:"Ca Marcé", clue:"Después de pasar el desvío al pueblo de El Llano, a mano derecha, es la segunda casa a la izquierda.",
       question:"¿Cuántos sacos hay colgados en la fachada de la casa?",
       options:[ {label:"Dos", emoji:"2️⃣"}, {label:"Cuatro", emoji:"4️⃣"}, {label:"Seis", emoji:"6️⃣"} ], correct:1 },
@@ -815,10 +817,62 @@
       options:[ {label:"Azules", color:"#2c5b96"}, {label:"Blancas", color:"#f4efe1"}, {label:"Verdes", color:"#3f7d3f"} ], correct:1 },
     { pin:"p12", code:"63", name:"La casa de la chocolatada", clue:"La última: mira alrededor del propio puesto de la chocolatada, no hace falta ir más lejos.",
       question:"¿Qué hay dibujado en el cartel de la chocolatada?",
-      options:[ {label:"Una taza", emoji:"☕"}, {label:"Un gnomo", emoji:"🧙"}, {label:"Unas campanas", emoji:"🔔"} ], correct:0 }
+      options:[ {label:"Una taza", emoji:"☕"}, {label:"Un trasgu", emoji:"🧙"}, {label:"Unas campanas", emoji:"🔔"} ], correct:0 },
+    { pin:"p13", code:"52", name:"La casa del pozo", clue:"Junto al pozo de piedra, al fondo de la calle.",
+      question:"¿Cuántos farolillos cuelgan de la puerta?",
+      options:[ {label:"Uno", emoji:"1️⃣"}, {label:"Tres", emoji:"3️⃣"}, {label:"Cinco", emoji:"5️⃣"} ], correct:1 },
+    { pin:"p14", code:"87", name:"La casa del manzano", clue:"Bajo el manzano más grande, a la entrada del pueblo.",
+      question:"¿De qué color es el lazo del árbol?",
+      options:[ {label:"Rojo", color:"#c23b2e"}, {label:"Verde", color:"#3f7d3f"}, {label:"Dorado", color:"#c99a3d"} ], correct:0 },
+    { pin:"p15", code:"19", name:"La casa del puente", clue:"Junto al arroyo, cerca del puente de madera.",
+      question:"¿Qué lleva puesto el muñeco de la puerta?",
+      options:[ {label:"Un gorro", emoji:"🧢"}, {label:"Una bufanda", emoji:"🧣"}, {label:"Nada", emoji:"🚫"} ], correct:1 },
+    { pin:"p16", code:"64", name:"La casa del hórreo azul", clue:"El hórreo con la puerta pintada de azul.",
+      question:"¿Cuántas estrellas cuelgan del corredor?",
+      options:[ {label:"Tres", emoji:"3️⃣"}, {label:"Cinco", emoji:"5️⃣"}, {label:"Siete", emoji:"7️⃣"} ], correct:1 },
+    { pin:"p17", code:"41", name:"La casa de la parra", clue:"La que tiene una parra subiendo por la fachada.",
+      question:"¿Qué hay en la ventana de arriba?",
+      options:[ {label:"Una vela", emoji:"🕯️"}, {label:"Una estrella", emoji:"⭐"}, {label:"Un muñeco", emoji:"🧸"} ], correct:1 },
+    { pin:"p18", code:"76", name:"La casa del camino alto", clue:"La última del camino que sube hacia el monte.",
+      question:"¿De qué color son las luces del portal?",
+      options:[ {label:"Blancas", color:"#f4efe1"}, {label:"Rojas", color:"#c23b2e"}, {label:"Azules", color:"#2c5b96"} ], correct:0 },
+    { pin:"p19", code:"36", name:"La casa de la fragua", clue:"Donde antes estaba la fragua, junto al camino de la iglesia.",
+      question:"¿Qué hay colgado sobre la puerta?",
+      options:[ {label:"Una herradura", emoji:"🧲"}, {label:"Una estrella", emoji:"⭐"}, {label:"Una campana", emoji:"🔔"} ], correct:2 },
+    { pin:"p20", code:"93", name:"La casa del nogal", clue:"La que tiene un nogal enorme pegado a la pared.",
+      question:"¿De qué color es el lazo del nogal?",
+      options:[ {label:"Rojo", color:"#c23b2e"}, {label:"Blanco", color:"#f4efe1"}, {label:"Dorado", color:"#c99a3d"} ], correct:0 }
   ];
 
-  var STORAGE_KEY = "aciera-pegollinos-2026";
+  var STORAGE_KEY = "aciera-pegollinos-2026-v2";
+  var SEL_KEY = "aciera-seleccion-2026";
+  var PER_GAME = 12;   // casas visibles para cada visitante
+  var SIG = POOL.map(function(h){ return h.code; }).join(",");  // si cambia el conjunto de casas, se vuelve a sortear
+
+  function drawSelection(){
+    var idx = POOL.map(function(_, i){ return i; });
+    for(var i = idx.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1)), t = idx[i]; idx[i] = idx[j]; idx[j] = t;
+    }
+    return idx.slice(0, Math.min(PER_GAME, POOL.length));
+  }
+  function loadSelection(){
+    var want = Math.min(PER_GAME, POOL.length);
+    try{
+      var o = JSON.parse(localStorage.getItem(SEL_KEY));
+      if(o && o.sig === SIG && Array.isArray(o.sel) && o.sel.length === want &&
+         o.sel.every(function(i){ return Number.isInteger(i) && i >= 0 && i < POOL.length; }) &&
+         new Set(o.sel).size === want) return o.sel;
+    }catch(e){}
+    var sel = drawSelection();
+    try{
+      localStorage.setItem(SEL_KEY, JSON.stringify({ sig:SIG, sel:sel }));
+      localStorage.removeItem(STORAGE_KEY);   // otra selección = partida nueva
+    }catch(e){}
+    return sel;
+  }
+  var SELECTION = loadSelection();
+  var PEGOLLINOS = SELECTION.map(function(i){ return POOL[i]; });   // las casas de ESTE visitante
 
   function loadState(){
     try{
@@ -841,6 +895,7 @@
   var grid = document.getElementById("grid");
   var lightsEl = document.getElementById("lights");
   var countEl = document.getElementById("count");
+  document.getElementById("total").textContent = PEGOLLINOS.length;
   var finishEl = document.getElementById("finish");
   var resetBtn = document.getElementById("resetBtn");
 
@@ -869,7 +924,7 @@
     var optionsHtml = g.options.map(function(opt, oi){
       var mark = opt.color
         ? '<span class="swatch" style="background:' + opt.color + '"></span>'
-        : '<span class="opt-emoji">' + opt.emoji + '</span>';
+        : (opt.emoji ? '<span class="opt-emoji">' + opt.emoji + '</span>' : "");
       return '<button class="opt" type="button" data-oi="' + oi + '">' + mark + '<span>' + opt.label + '</span></button>';
     }).join("");
     card.innerHTML =
@@ -888,7 +943,7 @@
       '<div class="quiz" data-i="' + i + '">' +
         '<p class="quiz-q">' + g.question + '</p>' +
         '<div class="options">' + optionsHtml + '</div>' +
-        '<p class="found-note" hidden>🎉 ¡Acertaste! Pegollín también se fijó en esto — <button class="undo" type="button">¿fue un error? deshacer</button></p>' +
+        '<p class="found-note" hidden>🔥 ¡Acertaste! Una llama vuelve al candil de Pegollín — <button class="undo" type="button">¿fue un error? deshacer</button></p>' +
       '</div>';
     grid.appendChild(card);
   });
@@ -1007,15 +1062,15 @@
 
   // --- mensaje final: uno distinto cada vez, con la firma fija en el HTML ---
   var MESSAGES = [
-    { title:"La magia de Aciera", body:"¡Enhorabuena! Has encontrado todos los secretos que escondía Aciera. Pero el verdadero tesoro de esta Navidad es compartir momentos especiales con quienes nos acompañan. Gracias por visitarnos y formar parte de nuestra magia. ¡Feliz Navidad!" },
+    { title:"La magia de Aciera", body:"¡Enhorabuena! Has encontrado todas las llamas que escondía Aciera. Pero el verdadero tesoro de esta Navidad es compartir momentos especiales con quienes nos acompañan. Gracias por visitarnos y formar parte de nuestra magia. ¡Feliz Navidad!" },
     { title:"Un deseo desde Aciera", body:"Dicen que los deseos que nacen en lugares especiales viajan más lejos. Hoy has descubierto todos nuestros rincones y queremos enviarte uno: que nunca te falten motivos para sonreír. Gracias por acompañarnos. ¡Felices fiestas!" },
-    { title:"El secreto mejor guardado", body:"Has encontrado todos los objetos escondidos, pero aún queda un secreto por descubrir: la Navidad es más bonita cuando la compartimos. Gracias por traer tu ilusión a Aciera. ¡Te deseamos una Navidad llena de alegría!" },
+    { title:"El secreto mejor guardado", body:"Has encontrado todas las llamas escondidas, pero aún queda un secreto por descubrir: la Navidad es más bonita cuando la compartimos. Gracias por traer tu ilusión a Aciera. ¡Te deseamos una Navidad llena de alegría!" },
     { title:"Misión navideña cumplida", body:"¡Misión completada! Has demostrado tener ojos de explorador y espíritu navideño. Los secretos de Aciera ya forman parte de tus recuerdos. Gracias por participar y ayudarnos a llenar el pueblo de vida. ¡Feliz Navidad!" },
-    { title:"Un mensaje del Guardián", body:"El Guardián de los Deseos ha visto cómo recorrías Aciera buscando cada pista. Ahora que has completado tu aventura, te envía un deseo especial: que la ilusión que has sentido hoy te acompañe durante todo el año. ¡Gracias por venir!" },
-    { title:"La estrella de Aciera", body:"Cada objeto encontrado ha encendido una pequeña estrella en tu aventura. Ahora que todas brillan, queremos darte las gracias por compartir esta Navidad con nosotros. Que tu camino esté siempre lleno de luz y buenos momentos." },
+    { title:"Un mensaje de Pegollín", body:"Pegollín ha visto cómo recorrías Aciera buscando cada pista. Ahora que su candil vuelve a brillar, te envía un deseo especial: que la ilusión que has sentido hoy te acompañe durante todo el año. ¡Gracias por venir!" },
+    { title:"La luz de Aciera", body:"Cada llama recuperada ha devuelto un poco de luz a Aciera. Ahora que todas brillan, queremos darte las gracias por compartir esta Navidad con nosotros. Que tu camino esté siempre lleno de luz y buenos momentos." },
     { title:"Un pueblo que te da las gracias", body:"Puede que Aciera sea un pueblo pequeño, pero su Navidad está hecha de grandes ilusiones. Gracias por recorrer nuestras calles, descubrir sus rincones y compartir este día con nosotros. ¡Esperamos volver a verte!" },
-    { title:"Para los pequeños exploradores", body:"¡Lo conseguiste! Has encontrado todos los tesoros navideños. Los Reyes Magos estarán orgullosos de tu gran trabajo como explorador. Sigue buscando la magia en las pequeñas cosas. ¡Feliz Navidad desde Aciera!" },
-    { title:"El mejor tesoro", body:"¡Has completado la búsqueda! Entre luces, estrellas y rincones escondidos, esperamos que hayas encontrado algo más que objetos: un bonito recuerdo para compartir. Gracias por elegir Aciera esta Navidad." },
+    { title:"Para los pequeños exploradores", body:"¡Lo conseguiste! Has encontrado todas las llamas de Pegollín. Los Reyes Magos estarán orgullosos de tu gran trabajo como explorador. Sigue buscando la magia en las pequeñas cosas. ¡Feliz Navidad desde Aciera!" },
+    { title:"El mejor tesoro", body:"¡Has completado la búsqueda! Entre luces, estrellas y rincones escondidos, esperamos que hayas encontrado algo más que llamas: un bonito recuerdo para compartir. Gracias por elegir Aciera esta Navidad." },
     { title:"Hasta la próxima Navidad", body:"Tu aventura navideña ha terminado, pero las puertas de Aciera seguirán abiertas para ti. Gracias por acompañarnos, por participar y por ayudarnos a mantener viva la ilusión de nuestro pueblo. ¡Feliz Navidad y hasta pronto!" }
   ];
   var fmTitleEl = document.getElementById("fmTitle");
@@ -1078,7 +1133,10 @@
       ctx.globalAlpha = 0.6; ctx.beginPath(); ctx.arc(s[0], s[1], s[2], 0, Math.PI*2); ctx.fill();
     });
     ctx.globalAlpha = 1;
-    glowDot(ctx, 880, 160, 40, "#e8b354", 0.18);
+    var mg = ctx.createRadialGradient(880, 160, 30, 880, 160, 120);
+    mg.addColorStop(0, "rgba(232,179,84,0.38)"); mg.addColorStop(1, "rgba(232,179,84,0)");
+    ctx.fillStyle = mg; ctx.fillRect(740, 20, 280, 280);
+    ctx.fillStyle = "#e8b354"; ctx.beginPath(); ctx.arc(880, 160, 40, 0, Math.PI*2); ctx.fill();
 
     // cinta de logro
     ctx.save();
@@ -1094,11 +1152,12 @@
     ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
 
     // silueta real de Aciera: pinos + hórreo + guirnalda, igual que en el resto de materiales
-    var baseY = 860;
+    var baseY = 520;   // la escena ocupa solo la parte de arriba (hasta y≈600); los textos van debajo, sin pisarse
     ctx.fillStyle = "#182645";
-    ctx.beginPath(); ctx.moveTo(120,baseY+120); ctx.lineTo(190,baseY-30); ctx.lineTo(260,baseY+120); ctx.closePath(); ctx.fill();
-    ctx.beginPath(); ctx.moveTo(860,baseY+120); ctx.lineTo(930,baseY-40); ctx.lineTo(1000,baseY+120); ctx.closePath(); ctx.fill();
-    [430,520,610,700].forEach(function(px){ ctx.fillRect(px, baseY-40, 16, 110); });
+    ctx.fillRect(0, baseY+78, W, 8);
+    ctx.beginPath(); ctx.moveTo(10,baseY+80); ctx.lineTo(70,baseY+10); ctx.lineTo(130,baseY+80); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(850,baseY+80); ctx.lineTo(930,baseY-70); ctx.lineTo(1010,baseY+80); ctx.closePath(); ctx.fill();
+    [430,520,610,700].forEach(function(px){ ctx.fillRect(px, baseY-40, 16, 118); });
     roundRect(ctx, 410, baseY-58, 320, 22, 3); ctx.fill();
     ctx.fillStyle = "#20325a";
     roundRect(ctx, 425, baseY-150, 290, 92, 4); ctx.fill();
@@ -1111,7 +1170,7 @@
       glowDot(ctx, glx, gly, 6, "#e8b354", 0.22);
     }
 
-    drawBadgePegollin(ctx, 240, 560, 6.4, "#e8b354");
+    drawBadgePegollin(ctx, 150, baseY+78-44*5.6, 5.6, "#e8b354");
 
     ctx.fillStyle = "#e8b354";
     ctx.font = "600 26px 'IBM Plex Mono', monospace";
@@ -1137,7 +1196,7 @@
     ctx.fillStyle = "#e8b354";
     ctx.font = "700 30px 'IBM Plex Mono', monospace";
     ctx.textBaseline = "middle";
-    ctx.fillText("12 / 12 llamas", 70, 1030);
+    ctx.fillText(PEGOLLINOS.length + " / " + PEGOLLINOS.length + " llamas", 70, 1030);
     ctx.fillStyle = "#b7c0d6";
     ctx.font = "500 22px 'Work Sans', sans-serif";
     ctx.textAlign = "right";
@@ -1264,13 +1323,13 @@
       return;
     }
     confirming = false;
-    state = new Array(PEGOLLINOS.length).fill(0);
-    saveState(state);
-    saveSeen({});
-    toastQueue = []; toastEl.classList.remove("show");
-    resetBtn.textContent = "Reiniciar búsqueda";
-    render();
+    // nuevo sorteo de casas y partida desde cero
+    try{ localStorage.removeItem(SEL_KEY); localStorage.removeItem(STORAGE_KEY); localStorage.removeItem(NUBERU_KEY); }catch(e){}
+    location.reload();
   });
+
+  // Vista previa del final para quien organiza: abrir la página con #demo-final (no guarda nada en el móvil)
+  if(location.hash === "#demo-final"){ state = new Array(PEGOLLINOS.length).fill(2); }
 
   render();
 })();
@@ -1387,6 +1446,14 @@
     { key:"p10", label:"Casa 10", n:10, x:237.9, y:239.5 },
     { key:"p11", label:"Casa 11", n:11, x:312.4, y:245.0 },
     { key:"p12", label:"Casa 12", n:12, x:389.0, y:230.2 },
+    { key:"p13", label:"Casa 13", n:13, x:205.0, y:268.0 },
+    { key:"p14", label:"Casa 14", n:14, x:262.0, y:285.0 },
+    { key:"p15", label:"Casa 15", n:15, x:300.0, y:300.0 },
+    { key:"p16", label:"Casa 16", n:16, x:180.0, y:345.0 },
+    { key:"p17", label:"Casa 17", n:17, x:255.0, y:395.0 },
+    { key:"p18", label:"Casa 18", n:18, x:150.0, y:430.0 },
+    { key:"p19", label:"Casa 19", n:19, x:270.0, y:260.0 },
+    { key:"p20", label:"Casa 20", n:20, x:200.0, y:300.0 },
     { key:"chocolatada", label:"Chocolatada", special:true, x:238, y:256 }
   ];
   var BTYPES = { 4:"house", 15:"house", 60:"house", 38:"barn", 39:"barn", 44:"barn" };
