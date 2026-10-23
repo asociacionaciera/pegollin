@@ -1,8 +1,8 @@
 // Service worker: guarda todo al instalar y responde desde el móvil, con o sin cobertura.
 // Con cobertura la página se pide primero a internet (así las actualizaciones llegan enseguida);
 // sin cobertura o con señal muy lenta (3 s) se usa lo guardado.
-const CACHE = "pegollin-23a2d72e";
-const ASSETS = ["./", "index.html", "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-512.png", "fonts/Fraunces-300-900-latin-ext.woff2", "fonts/Fraunces-300-900-latin.woff2", "fonts/IBMPlexMono-500-latin-ext.woff2", "fonts/IBMPlexMono-500-latin.woff2", "fonts/IBMPlexMono-600-latin-ext.woff2", "fonts/IBMPlexMono-600-latin.woff2", "fonts/WorkSans-400-latin-ext.woff2", "fonts/WorkSans-400-latin.woff2", "fonts/WorkSans-500-latin-ext.woff2", "fonts/WorkSans-500-latin.woff2", "fonts/WorkSans-600-latin-ext.woff2", "fonts/WorkSans-600-latin.woff2", "fonts/WorkSans-700-latin-ext.woff2", "fonts/WorkSans-700-latin.woff2"];
+const CACHE = "pegollin-d3d229f1";
+const ASSETS = ["./", "index.html", "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-512.png", "logo-asociacion.png", "casa-aciera.png", "fonts/Fraunces-300-900-latin-ext.woff2", "fonts/Fraunces-300-900-latin.woff2", "fonts/IBMPlexMono-500-latin-ext.woff2", "fonts/IBMPlexMono-500-latin.woff2", "fonts/IBMPlexMono-600-latin-ext.woff2", "fonts/IBMPlexMono-600-latin.woff2", "fonts/WorkSans-400-latin-ext.woff2", "fonts/WorkSans-400-latin.woff2", "fonts/WorkSans-500-latin-ext.woff2", "fonts/WorkSans-500-latin.woff2", "fonts/WorkSans-600-latin-ext.woff2", "fonts/WorkSans-600-latin.woff2", "fonts/WorkSans-700-latin-ext.woff2", "fonts/WorkSans-700-latin.woff2"];
 self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS.map(u => new Request(u, { cache: "reload" })))).then(() => self.skipWaiting()));
 });

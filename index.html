@@ -542,6 +542,34 @@
     .toast{ transition:none; }
   }
 
+  /* ---------- entrada corta ---------- */
+  .legend-body.collapsed > p:not(.first):not(.second){ display:none; }
+  .legend-body.collapsed > p.first{
+    display:-webkit-box; -webkit-line-clamp:7; line-clamp:7; -webkit-box-orient:vertical; overflow:hidden; margin-bottom:6px;
+  }
+  .legend-body.collapsed > p.first::first-letter{ float:none; font-size:inherit; font-weight:inherit; color:inherit; padding:0; line-height:inherit; font-family:inherit; }
+  .legend-toggle{
+    display:block; margin:10px auto 0; font-family:"Work Sans", sans-serif; font-size:13.5px; font-weight:600;
+    color:var(--gold); background:transparent; border:1px solid var(--line); border-radius:999px; padding:9px 18px; cursor:pointer;
+  }
+  .legend-toggle:hover{ border-color:var(--gold); }
+  .cta-wrap{ text-align:center; margin:-8px 0 26px; }
+  .cta{
+    display:inline-block; font-family:"Work Sans", sans-serif; font-weight:700; font-size:16px; text-decoration:none;
+    color:var(--night); background:var(--gold); border-radius:999px; padding:15px 28px; box-shadow:var(--shadow);
+  }
+  .cta:hover{ filter:brightness(1.06); }
+  .cta-sub{ margin:10px auto 0; max-width:36ch; font-size:13px; line-height:1.5; color:var(--ink-dim); }
+  .howto details{ background:none; border:none; padding:0; margin:0; }
+  .howto summary{ cursor:pointer; font-family:"Fraunces", Georgia, serif; font-size:21px; font-weight:600; color:var(--ink); }
+  .howto details[open] summary{ margin-bottom:14px; }
+  .hint-btn{
+    align-self:flex-start; font-family:"Work Sans", sans-serif; font-size:12.5px; font-weight:600; color:var(--ink-dim);
+    background:transparent; border:1px dashed var(--line); border-radius:999px; padding:6px 12px; cursor:pointer;
+  }
+  .hint-btn:hover{ border-color:var(--gold); color:var(--ink); }
+  .hint2{ margin:0; font-size:13.5px; line-height:1.55; color:var(--ink); background:var(--night-panel-2); border-radius:10px; padding:9px 12px; }
+
   /* ---------- footer ---------- */
   .foot{ margin-top:30px; border-top:1px solid var(--line); padding-top:20px; }
   details{
@@ -590,59 +618,24 @@
   .install button.primary{ background:var(--gold); color:var(--night); border-color:transparent; }
   .offline-chip{ display:inline-block; font-family:"IBM Plex Mono", monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; padding:3px 9px; border-radius:999px; border:1px solid var(--line); color:var(--ink-dim); }
   .offline-chip.ready{ color:var(--pine); border-color:var(--pine); }
+
+  .logo{ width:min(190px,48%); aspect-ratio:800/656; margin:0 auto 14px; background:var(--ink);
+    -webkit-mask:url(logo-asociacion.png) center/contain no-repeat; mask:url(logo-asociacion.png) center/contain no-repeat; }
+
+  .geo{ margin:18px 0 6px; text-align:center; }
+  .geo-btn{ font-family:"Work Sans", sans-serif; font-size:14px; font-weight:600; color:var(--ink); background:var(--night-panel); border:1px solid var(--line); border-radius:999px; padding:11px 18px; cursor:pointer; }
+  .geo-btn:hover{ border-color:#7f93b8; }
+  .geo-out{ margin:12px auto 0; max-width:44ch; text-align:left; display:flex; gap:12px; align-items:flex-start; background:color-mix(in srgb, #7f93b8 18%, var(--night-panel)); border:1px solid var(--line); border-radius:12px; padding:12px 14px; font-size:14px; line-height:1.5; }
+  .geo-out[hidden]{ display:none; }
+  .geo-out .em{ font-size:26px; line-height:1; flex:none; }
+  .geo-out small{ display:block; margin-top:4px; color:var(--ink-dim); font-size:12px; }
 </style>
 </head>
 <body>
 <div class="page">
 
   <header class="hero">
-    <svg class="skyline" viewBox="0 0 640 200" role="img" aria-label="Silueta nocturna de un hórreo asturiano entre pinos y estrellas">
-      <circle cx="560" cy="46" r="24" fill="var(--gold)" opacity="0.9"></circle>
-      <circle cx="70" cy="30" r="2" fill="var(--ink)" opacity="0.7"></circle>
-      <circle cx="120" cy="55" r="1.6" fill="var(--ink)" opacity="0.6"></circle>
-      <circle cx="230" cy="24" r="1.8" fill="var(--ink)" opacity="0.7"></circle>
-      <circle cx="470" cy="20" r="1.6" fill="var(--ink)" opacity="0.6"></circle>
-      <circle cx="510" cy="70" r="1.8" fill="var(--ink)" opacity="0.5"></circle>
-      <!-- pines -->
-      <g fill="var(--night-panel-2)">
-        <polygon points="40,180 66,120 92,180"></polygon>
-        <polygon points="52,180 66,140 80,180"></polygon>
-        <polygon points="560,180 582,132 604,180"></polygon>
-      </g>
-      <!-- hórreo -->
-      <g>
-        <rect x="230" y="90" width="10" height="70" fill="var(--night-panel-2)"></rect>
-        <rect x="300" y="90" width="10" height="70" fill="var(--night-panel-2)"></rect>
-        <rect x="370" y="90" width="10" height="70" fill="var(--night-panel-2)"></rect>
-        <rect x="440" y="90" width="10" height="70" fill="var(--night-panel-2)"></rect>
-        <rect x="220" y="80" width="240" height="14" rx="2" fill="var(--night-panel-2)"></rect>
-        <rect x="235" y="30" width="210" height="52" rx="3" fill="var(--night-panel)" stroke="var(--line)"></rect>
-        <rect x="255" y="30" width="4" height="52" fill="var(--line)"></rect>
-        <rect x="295" y="30" width="4" height="52" fill="var(--line)"></rect>
-        <rect x="335" y="30" width="4" height="52" fill="var(--line)"></rect>
-        <rect x="375" y="30" width="4" height="52" fill="var(--line)"></rect>
-        <rect x="415" y="30" width="4" height="52" fill="var(--line)"></rect>
-        <polygon points="210,30 460,30 340,-4 330,-4" fill="var(--night-panel-2)" transform="translate(0,4)"></polygon>
-        <polygon points="215,32 455,32 335,4" fill="var(--night-panel-2)"></polygon>
-      </g>
-      <!-- string of lights along the roof -->
-      <g>
-        <circle cx="230" cy="14" r="6" fill="var(--gold)" opacity="0.18"></circle>
-        <circle cx="230" cy="14" r="2.4" fill="var(--gold)"></circle>
-        <circle cx="270" cy="10" r="6" fill="var(--gold)" opacity="0.18"></circle>
-        <circle cx="270" cy="10" r="2.4" fill="var(--gold)"></circle>
-        <circle cx="310" cy="7" r="6" fill="var(--gold)" opacity="0.18"></circle>
-        <circle cx="310" cy="7" r="2.4" fill="var(--gold)"></circle>
-        <circle cx="350" cy="6" r="6" fill="var(--gold)" opacity="0.2"></circle>
-        <circle cx="350" cy="6" r="2.6" fill="var(--gold)"></circle>
-        <circle cx="390" cy="8" r="6" fill="var(--gold)" opacity="0.18"></circle>
-        <circle cx="390" cy="8" r="2.4" fill="var(--gold)"></circle>
-        <circle cx="430" cy="12" r="6" fill="var(--gold)" opacity="0.18"></circle>
-        <circle cx="430" cy="12" r="2.4" fill="var(--gold)"></circle>
-        <circle cx="460" cy="18" r="6" fill="var(--gold)" opacity="0.18"></circle>
-        <circle cx="460" cy="18" r="2.4" fill="var(--gold)"></circle>
-      </g>
-    </svg>
+    <div class="logo" role="img" aria-label="Logotipo de la Asociación de Vecinos Candor Fandos, Aciera-Quirós"></div>
 
     <p class="eyebrow">Aciera · Quirós · Asturias</p>
     <h1>La Ruta de Pegollín</h1>
@@ -660,10 +653,10 @@
   <section class="legend" aria-labelledby="legendTitle">
     <p class="eyebrow">La leyenda de Pegollín</p>
     <h2 id="legendTitle">La noche en que se apagó la Navidad</h2>
-    <p class="skip"><a href="#pistas">Saltar a las pistas ↓</a></p>
 
+    <div class="legend-body collapsed" id="legendBody">
     <p class="first">Cuentan los más viejos de Aciera que bajo los hórreos del pueblo viven unos pequeños seres traviesos llamados <strong>trasgos</strong>. Cuando el pueblo duerme, salen a cuidar las casas y los caminos para que nunca falte la magia en Aciera.</p>
-    <p>El más especial de todos se llama <strong>Pegollín</strong>: lleva un gorru colorado, unas madreñas gastadas de recorrer las caleyas y un viejo candil que lleva más de trescientos inviernos sin apagarse.</p>
+    <p class="second">El más especial de todos se llama <strong>Pegollín</strong>: lleva un gorru colorado, unas madreñas gastadas de recorrer las caleyas y un viejo candil que lleva más de trescientos inviernos sin apagarse.</p>
     <p>Dentro del candil guarda <strong>las llamas de la Navidad de Aciera</strong>, pequeñas luces que nacen cada diciembre cuando los vecinos adornan sus casas. Mientras el candil siga encendido, la magia seguirá viva.</p>
 
     <p class="beat"><strong>Pero este año ocurrió algo que nadie esperaba...</strong></p>
@@ -680,24 +673,36 @@
     <p>Cuando consigas reunirlas todas, Pegollín compartirá contigo un secreto que ni el travieso Nuberu conoce: <strong>la verdadera magia de la Navidad de Aciera no está en las luces de sus casas, sino en las personas que las encienden.</strong></p>
 
     <p class="oath">¿Ayudarás a Pegollín a recuperar las llamas perdidas?</p>
+    </div>
+    <button class="legend-toggle" id="legendToggle" type="button" aria-expanded="false">Leer la leyenda completa ↓</button>
   </section>
 
-  <div id="pistas"></div>
+  <div class="cta-wrap">
+    <a class="cta" href="#pistas" id="ctaStart">Empezar a buscar las llamas</a>
+    <p class="cta-sub">Busca la casa de cada pista, lee el número del cartelito y escríbelo para abrir su pregunta.</p>
+  </div>
 
   <section class="howto">
-    <h2>Cómo se juega</h2>
+    <details id="howtoDetails"><summary>Cómo se juega</summary>
     <ol>
       <li><span>Cada tarjeta trae una <strong>pista</strong> para llegar a una casa. Pulsa <strong>Ver en el plano</strong> para ver dónde está marcada y ve a buscarla, en el orden que quieras — sin entrar en fincas ni tocar la decoración de nadie, <strong>solo mirar</strong>.</span></li>
       <li><span>Cada casa tiene un <strong>número</strong> a la vista. Cuando llegues, escríbelo en la tarjeta para abrirla: así Pegollín sabe que has estado allí.</span></li>
       <li><span>Fíjate bien en lo que han puesto los vecinos y responde la pregunta — solo se puede acertar si te has fijado de verdad. El progreso se queda guardado en este móvil aunque cierres la página.</span></li>
       <li><span>Al devolver todas las llamas, Pegollín te lo agradece con un mensaje y una imagen para guardar — no hace falta buscar a nadie ni validar nada.</span></li>
     </ol>
+  </details>
   </section>
 
+  <div id="pistas"></div>
   <section class="progress" aria-live="polite">
     <div class="lights" id="lights"></div>
     <p class="progress-count"><b id="count">0</b>/<span id="total">12</span> llamas en el candil</p>
     <button class="reset" id="resetBtn" type="button">Reiniciar búsqueda</button>
+  </section>
+
+  <section class="geo" id="geoBox">
+    <button class="geo-btn" id="geoBtn" type="button">🧭 ¿Frío o caliente? Pregúntale al Nuberu</button>
+    <p class="geo-out" id="geoOut" hidden></p>
   </section>
 
   <section class="grid" id="grid">
@@ -725,7 +730,7 @@
     </div>
     <div class="share-wrap">
       <canvas id="shareCanvas" width="1080" height="1080"></canvas>
-      <button class="share-btn" id="shareBtn" type="button" disabled>Generando imagen…</button>
+      <button class="share-btn" id="shareBtn" type="button" disabled>Generando imagen…</button>      <p style="margin:12px 0 0"><button class="undo" id="dlBtn" type="button" hidden>Guardar la imagen en el móvil</button></p>
     </div>
   </section>
 
@@ -782,64 +787,64 @@
   // POOL = TODAS las casas que participan (pueden ser más de 12). A cada visitante le toca una selección
   // distinta de PER_GAME casas al azar, que se queda guardada en su móvil. Cada casa necesita un "code" único.
   var POOL = [
-    { pin:"p1", code:"47", name:"Ca Marcé", clue:"Después de pasar el desvío al pueblo de El Llano, a mano derecha, es la segunda casa a la izquierda.",
+    { pin:"p1", code:"47", name:"Ca Marcé", clue:"Después de pasar el desvío al pueblo de El Llano, a mano derecha, es la segunda casa a la izquierda.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Cuántos sacos hay colgados en la fachada de la casa?",
       options:[ {label:"Dos", emoji:"2️⃣"}, {label:"Cuatro", emoji:"4️⃣"}, {label:"Seis", emoji:"6️⃣"} ], correct:1 },
-    { pin:"p2", code:"23", name:"La casa de la cuadra", clue:"Donde cuelga el cencerro más grande, cerca de la <em>cuadra</em>.",
+    { pin:"p2", code:"23", name:"La casa de la cuadra", clue:"Donde cuelga el cencerro más grande, cerca de la <em>cuadra</em>.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿De qué color es la estrella de la puerta?",
       options:[ {label:"Rojo", color:"#c23b2e"}, {label:"Dorado", color:"#c99a3d"}, {label:"Azul", color:"#2c5b96"} ], correct:1 },
-    { pin:"p3", code:"68", name:"La casa de la fuente", clue:"Justo al lado de la fuente del pueblo.",
+    { pin:"p3", code:"68", name:"La casa de la fuente", clue:"Justo al lado de la fuente del pueblo.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Qué hay colgado en la ventana?",
       options:[ {label:"Un farolillo", emoji:"🏮"}, {label:"Una guirnalda", emoji:"🎀"}, {label:"Un cascabel", emoji:"🔔"} ], correct:0 },
-    { pin:"p4", code:"15", name:"La casa del tejado inclinado", clue:"El <em>teyáu</em> más empinado, casi tocando las ramas de un árbol.",
+    { pin:"p4", code:"15", name:"La casa del tejado inclinado", clue:"El <em>teyáu</em> más empinado, casi tocando las ramas de un árbol.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿De qué color son las luces del tejado?",
       options:[ {label:"Blancas", color:"#f4efe1"}, {label:"Doradas", color:"#c99a3d"}, {label:"Multicolor", emoji:"🌈"} ], correct:2 },
-    { pin:"p5", code:"82", name:"La casa del carro viejo", clue:"Tiene un <em>carru</em> de madera de adorno en la entrada, el que ya no sale al monte.",
+    { pin:"p5", code:"82", name:"La casa del carro viejo", clue:"Tiene un <em>carru</em> de madera de adorno en la entrada, el que ya no sale al monte.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Qué lleva encima el carro?",
       options:[ {label:"Un árbol pequeño", emoji:"🎄"}, {label:"Un muñeco de nieve", emoji:"⛄"}, {label:"Regalos", emoji:"🎁"} ], correct:0 },
-    { pin:"p6", code:"39", name:"La casa del corral de piedra", clue:"La <em>corripa</em> de piedra, el corral pequeño nada más entrar al pueblo.",
+    { pin:"p6", code:"39", name:"La casa del corral de piedra", clue:"La <em>corripa</em> de piedra, el corral pequeño nada más entrar al pueblo.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Cuántas estrellas hay en la pared?",
       options:[ {label:"Dos", emoji:"2️⃣"}, {label:"Cuatro", emoji:"4️⃣"}, {label:"Seis", emoji:"6️⃣"} ], correct:1 },
-    { pin:"p7", code:"56", name:"La casa de la farola", clue:"Junto al palu de la luz más cercano a la fuente.",
+    { pin:"p7", code:"56", name:"La casa de la farola", clue:"Junto al palu de la luz más cercano a la fuente.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿De qué están hechos los renos de delante?",
       options:[ {label:"Madera", emoji:"🪵"}, {label:"Alambre", emoji:"🔧"}, {label:"Neumáticos viejos", emoji:"🛞"} ], correct:2 },
-    { pin:"p8", code:"91", name:"La casa del corredor largo", clue:"El hórreo cuyo <em>corredor</em> da la vuelta entera a la casa.",
+    { pin:"p8", code:"91", name:"La casa del corredor largo", clue:"El hórreo cuyo <em>corredor</em> da la vuelta entera a la casa.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Cuántos muñecos de nieve hay en el corredor?",
       options:[ {label:"Uno", emoji:"1️⃣"}, {label:"Dos", emoji:"2️⃣"}, {label:"Ninguno", emoji:"0️⃣"} ], correct:0 },
-    { pin:"p9", code:"34", name:"La casa del muro bajo", clue:"El muro que sirve de banco cuando hay chocolatada.",
+    { pin:"p9", code:"34", name:"La casa del muro bajo", clue:"El muro que sirve de banco cuando hay chocolatada.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿De qué color es la guirnalda del muro?",
       options:[ {label:"Verde", color:"#3f7d3f"}, {label:"Roja", color:"#c23b2e"}, {label:"Dorada", color:"#c99a3d"} ], correct:0 },
-    { pin:"p10", code:"71", name:"La casa de la leñera", clue:"La <em>tenada</em> donde se guarda la leña para todo el invierno.",
+    { pin:"p10", code:"71", name:"La casa de la leñera", clue:"La <em>tenada</em> donde se guarda la leña para todo el invierno.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Qué hay encima de la leña?",
       options:[ {label:"Un gorro de Papá Noel", emoji:"🎅"}, {label:"Un búho de madera", emoji:"🦉"}, {label:"Nada, está vacía", emoji:"🚫"} ], correct:0 },
-    { pin:"p11", code:"28", name:"La casa del balcón con luces", clue:"El balcón con más hileras de luces de todo el pueblo.",
+    { pin:"p11", code:"28", name:"La casa del balcón con luces", clue:"El balcón con más hileras de luces de todo el pueblo.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿De qué color son las luces del balcón?",
       options:[ {label:"Azules", color:"#2c5b96"}, {label:"Blancas", color:"#f4efe1"}, {label:"Verdes", color:"#3f7d3f"} ], correct:1 },
-    { pin:"p12", code:"63", name:"La casa de la chocolatada", clue:"La última: mira alrededor del propio puesto de la chocolatada, no hace falta ir más lejos.",
+    { pin:"p12", code:"63", name:"La casa de la chocolatada", clue:"La última: mira alrededor del propio puesto de la chocolatada, no hace falta ir más lejos.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Qué hay dibujado en el cartel de la chocolatada?",
       options:[ {label:"Una taza", emoji:"☕"}, {label:"Un trasgu", emoji:"🧙"}, {label:"Unas campanas", emoji:"🔔"} ], correct:0 },
-    { pin:"p13", code:"52", name:"La casa del pozo", clue:"Junto al pozo de piedra, al fondo de la calle.",
+    { pin:"p13", code:"52", name:"La casa del pozo", clue:"Junto al pozo de piedra, al fondo de la calle.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Cuántos farolillos cuelgan de la puerta?",
       options:[ {label:"Uno", emoji:"1️⃣"}, {label:"Tres", emoji:"3️⃣"}, {label:"Cinco", emoji:"5️⃣"} ], correct:1 },
-    { pin:"p14", code:"87", name:"La casa del manzano", clue:"Bajo el manzano más grande, a la entrada del pueblo.",
+    { pin:"p14", code:"87", name:"La casa del manzano", clue:"Bajo el manzano más grande, a la entrada del pueblo.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿De qué color es el lazo del árbol?",
       options:[ {label:"Rojo", color:"#c23b2e"}, {label:"Verde", color:"#3f7d3f"}, {label:"Dorado", color:"#c99a3d"} ], correct:0 },
-    { pin:"p15", code:"19", name:"La casa del puente", clue:"Junto al arroyo, cerca del puente de madera.",
+    { pin:"p15", code:"19", name:"La casa del puente", clue:"Junto al arroyo, cerca del puente de madera.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Qué lleva puesto el muñeco de la puerta?",
       options:[ {label:"Un gorro", emoji:"🧢"}, {label:"Una bufanda", emoji:"🧣"}, {label:"Nada", emoji:"🚫"} ], correct:1 },
-    { pin:"p16", code:"64", name:"La casa del hórreo azul", clue:"El hórreo con la puerta pintada de azul.",
+    { pin:"p16", code:"64", name:"La casa del hórreo azul", clue:"El hórreo con la puerta pintada de azul.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Cuántas estrellas cuelgan del corredor?",
       options:[ {label:"Tres", emoji:"3️⃣"}, {label:"Cinco", emoji:"5️⃣"}, {label:"Siete", emoji:"7️⃣"} ], correct:1 },
-    { pin:"p17", code:"41", name:"La casa de la parra", clue:"La que tiene una parra subiendo por la fachada.",
+    { pin:"p17", code:"41", name:"La casa de la parra", clue:"La que tiene una parra subiendo por la fachada.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Qué hay en la ventana de arriba?",
       options:[ {label:"Una vela", emoji:"🕯️"}, {label:"Una estrella", emoji:"⭐"}, {label:"Un muñeco", emoji:"🧸"} ], correct:1 },
-    { pin:"p18", code:"76", name:"La casa del camino alto", clue:"La última del camino que sube hacia el monte.",
+    { pin:"p18", code:"76", name:"La casa del camino alto", clue:"La última del camino que sube hacia el monte.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿De qué color son las luces del portal?",
       options:[ {label:"Blancas", color:"#f4efe1"}, {label:"Rojas", color:"#c23b2e"}, {label:"Azules", color:"#2c5b96"} ], correct:0 },
-    { pin:"p19", code:"36", name:"La casa de la fragua", clue:"Donde antes estaba la fragua, junto al camino de la iglesia.",
+    { pin:"p19", code:"36", name:"La casa de la fragua", clue:"Donde antes estaba la fragua, junto al camino de la iglesia.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Qué hay colgado sobre la puerta?",
       options:[ {label:"Una herradura", emoji:"🧲"}, {label:"Una estrella", emoji:"⭐"}, {label:"Una campana", emoji:"🔔"} ], correct:2 },
-    { pin:"p20", code:"93", name:"La casa del nogal", clue:"La que tiene un nogal enorme pegado a la pared.",
+    { pin:"p20", code:"93", name:"La casa del nogal", clue:"La que tiene un nogal enorme pegado a la pared.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿De qué color es el lazo del nogal?",
       options:[ {label:"Rojo", color:"#c23b2e"}, {label:"Blanco", color:"#f4efe1"}, {label:"Dorado", color:"#c99a3d"} ], correct:0 }
   ];
@@ -933,6 +938,7 @@
         '<h3 class="card-name"></h3></div>' +
       '</div>' +
       '<p class="clue">' + g.clue + '</p>' +
+      (g.hint2 ? '<button class="hint-btn" type="button">💡 Necesito otra pista</button><p class="hint2" hidden>' + g.hint2 + '</p>' : '') +
       '<button class="map-link" type="button" data-pin="' + g.pin + '">🗺️ Ver en el plano</button>' +
       '<form class="lock" data-i="' + i + '" autocomplete="off">' +
         '<label for="code' + i + '">Número de la casa</label>' +
@@ -1044,6 +1050,12 @@
       card.querySelector(".quiz").hidden = st === 0;
       card.querySelector(".options").hidden = isFound;
       card.querySelector(".found-note").hidden = !isFound;
+      var hbtn = card.querySelector(".hint-btn");
+      if(hbtn){
+        var h2 = card.querySelector(".hint2");
+        hbtn.hidden = st !== 0 || card.dataset.hint === "1";
+        h2.hidden = st !== 0 || card.dataset.hint !== "1";
+      }
       bulbs[i].classList.toggle("lit", isFound);
     });
     countEl.textContent = found;
@@ -1119,6 +1131,9 @@
     c.restore();
   }
 
+  var casaImg = new Image();
+  var casaReady = new Promise(function(res){ casaImg.onload = res; casaImg.onerror = res; });
+  casaImg.src = "casa-aciera.png";
   function drawBadge(){
     var ctx = shareCanvas.getContext("2d");
     var W = shareCanvas.width, H = shareCanvas.height;
@@ -1133,10 +1148,10 @@
       ctx.globalAlpha = 0.6; ctx.beginPath(); ctx.arc(s[0], s[1], s[2], 0, Math.PI*2); ctx.fill();
     });
     ctx.globalAlpha = 1;
-    var mg = ctx.createRadialGradient(880, 160, 30, 880, 160, 120);
+    var mg = ctx.createRadialGradient(930, 100, 24, 930, 100, 110);
     mg.addColorStop(0, "rgba(232,179,84,0.38)"); mg.addColorStop(1, "rgba(232,179,84,0)");
-    ctx.fillStyle = mg; ctx.fillRect(740, 20, 280, 280);
-    ctx.fillStyle = "#e8b354"; ctx.beginPath(); ctx.arc(880, 160, 40, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = mg; ctx.fillRect(800, 0, 280, 230);
+    ctx.fillStyle = "#e8b354"; ctx.beginPath(); ctx.arc(930, 100, 30, 0, Math.PI*2); ctx.fill();
 
     // cinta de logro
     ctx.save();
@@ -1151,26 +1166,39 @@
     ctx.restore();
     ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
 
-    // silueta real de Aciera: pinos + hórreo + guirnalda, igual que en el resto de materiales
-    var baseY = 520;   // la escena ocupa solo la parte de arriba (hasta y≈600); los textos van debajo, sin pisarse
-    ctx.fillStyle = "#182645";
-    ctx.fillRect(0, baseY+78, W, 8);
-    ctx.beginPath(); ctx.moveTo(10,baseY+80); ctx.lineTo(70,baseY+10); ctx.lineTo(130,baseY+80); ctx.closePath(); ctx.fill();
-    ctx.beginPath(); ctx.moveTo(850,baseY+80); ctx.lineTo(930,baseY-70); ctx.lineTo(1010,baseY+80); ctx.closePath(); ctx.fill();
-    [430,520,610,700].forEach(function(px){ ctx.fillRect(px, baseY-40, 16, 118); });
-    roundRect(ctx, 410, baseY-58, 320, 22, 3); ctx.fill();
-    ctx.fillStyle = "#20325a";
-    roundRect(ctx, 425, baseY-150, 290, 92, 4); ctx.fill();
-    ctx.strokeStyle = "rgba(244,239,225,0.18)"; ctx.lineWidth = 2;
-    [465,510,555,600,645,690,735].forEach(function(lx){ ctx.beginPath(); ctx.moveTo(lx, baseY-150); ctx.lineTo(lx, baseY-58); ctx.stroke(); });
-    ctx.fillStyle = "#182645";
-    ctx.beginPath(); ctx.moveTo(400,baseY-150); ctx.lineTo(740,baseY-150); ctx.lineTo(570,baseY-235); ctx.closePath(); ctx.fill();
-    for(var gi=0; gi<9; gi++){
-      var gt = gi/8, glx = 420 + gt*300, gly = baseY-150 - Math.sin(gt*Math.PI)*46 - 6;
-      glowDot(ctx, glx, gly, 6, "#e8b354", 0.22);
+    // dibujo a línea de los hórreos de Aciera a todo el ancho, fundido hacia abajo para que los textos se lean
+    if(casaImg.complete && casaImg.naturalWidth){
+      var sc = W / casaImg.naturalWidth;
+      var srcY = Math.round(0.20 * casaImg.naturalHeight), srcH = Math.round(660 / sc);
+      ctx.globalAlpha = 0.92; ctx.drawImage(casaImg, 0, srcY, casaImg.naturalWidth, srcH, 0, 0, W, 660); ctx.globalAlpha = 1;
+      var fade = ctx.createLinearGradient(0, 420, 0, 668);
+      fade.addColorStop(0, "rgba(21,35,64,0)"); fade.addColorStop(1, "rgb(21,35,64)");
+      ctx.fillStyle = fade; ctx.fillRect(0, 420, W, 248);
     }
-
-    drawBadgePegollin(ctx, 150, baseY+78-44*5.6, 5.6, "#e8b354");
+    // Pegollín con su candil, junto al título
+    (function(){
+      var px = 800, py = 722, k = 4.6;
+      var lx = px - 18, ly = py + 120;
+      ctx.strokeStyle = "#8a6a45"; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(lx, ly - 14, 16, Math.PI, 0); ctx.stroke();
+      var lg = ctx.createRadialGradient(lx, ly + 18, 6, lx, ly + 18, 84);
+      lg.addColorStop(0, "rgba(232,179,84,0.45)"); lg.addColorStop(1, "rgba(232,179,84,0)");
+      ctx.fillStyle = lg; ctx.fillRect(lx - 90, ly - 70, 180, 180);
+      ctx.strokeStyle = "#8a6a45"; ctx.lineWidth = 4; ctx.strokeRect(lx - 16, ly - 14, 32, 44);
+      ctx.fillStyle = "#e8b354"; ctx.beginPath(); ctx.moveTo(lx, ly - 6); ctx.bezierCurveTo(lx + 11, ly + 6, lx + 11, ly + 18, lx, ly + 26); ctx.bezierCurveTo(lx - 11, ly + 18, lx - 11, ly + 6, lx, ly - 6); ctx.fill();
+      drawBadgePegollin(ctx, px, py, k, "#e8b354");
+    })();
+    // la cinta de logro va por encima del dibujo
+    ctx.save();
+    ctx.translate(150, 150);
+    ctx.rotate(-0.18);
+    ctx.fillStyle = "#e8b354";
+    roundRect(ctx, -110, -26, 220, 52, 26); ctx.fill();
+    ctx.fillStyle = "#0f1a33";
+    ctx.font = "700 24px 'IBM Plex Mono', monospace";
+    ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText("¡COMPLETADO!", 0, 2);
+    ctx.restore();
+    ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
 
     ctx.fillStyle = "#e8b354";
     ctx.font = "600 26px 'IBM Plex Mono', monospace";
@@ -1208,6 +1236,7 @@
   function ensureBadge(){
     if(badgeDrawn) return;
     Promise.all([
+      casaReady,
       document.fonts.load('700 86px "Fraunces"'),
       document.fonts.load('500 28px "Work Sans"'),
       document.fonts.load('700 30px "IBM Plex Mono"'),
@@ -1234,17 +1263,31 @@
     } else if(!downloadsApi){
       shareBtn.disabled = true; shareBtn.textContent = "Descarga no disponible aquí";
     } else {
-      shareBtn.disabled = false; shareBtn.textContent = "Descargar imagen para compartir";
+      shareBtn.disabled = false; shareBtn.textContent = canShareFiles ? "Compartir mi reconocimiento" : "Descargar imagen para compartir";
     }
+  }
+  var canShareFiles = false;
+  try{ canShareFiles = !!(navigator.share && navigator.canShare && navigator.canShare({ files:[new File(["x"], "a.png", { type:"image/png" })] })); }catch(e){}
+  function downloadBlob(blob, name){
+    var u = URL.createObjectURL(blob), a = document.createElement("a");
+    a.href = u; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(u); }, 4000);
+  }
+  var dlBtn = document.getElementById("dlBtn");
+  if(canShareFiles){
+    dlBtn.hidden = false;
+    dlBtn.addEventListener("click", function(){ shareCanvas.toBlob(function(b){ if(b) downloadBlob(b, "guardian-de-la-luz-de-aciera.png"); }, "image/png"); });
   }
   useCapability("downloads").then(function(d){
     downloadsApi = d || {
       save: function(o){
-        return new Promise(function(res){
-          var u = URL.createObjectURL(o.data), a = document.createElement("a");
-          a.href = u; a.download = o.filename; document.body.appendChild(a); a.click(); a.remove();
-          setTimeout(function(){ URL.revokeObjectURL(u); }, 4000); res();
-        });
+        if(canShareFiles){
+          var file = new File([o.data], o.filename, { type:"image/png" });
+          return navigator.share({ files:[file], title:"Guardián de la Luz de Aciera",
+            text:"He devuelto todas las llamas al candil de Pegollín en Aciera. ¡Ayúdale tú también!" })
+            .catch(function(err){ if(err && err.name === "AbortError") return; downloadBlob(o.data, o.filename); });
+        }
+        return new Promise(function(res){ downloadBlob(o.data, o.filename); res(); });
       }
     };
     updateShareBtn();
@@ -1326,6 +1369,23 @@
     // nuevo sorteo de casas y partida desde cero
     try{ localStorage.removeItem(SEL_KEY); localStorage.removeItem(STORAGE_KEY); localStorage.removeItem(NUBERU_KEY); }catch(e){}
     location.reload();
+  });
+
+  // --- entrada corta: leyenda recogida (2 líneas) + botón; "Cómo se juega" plegable ---
+  var legendBody = document.getElementById("legendBody"), legendToggle = document.getElementById("legendToggle");
+  legendToggle.addEventListener("click", function(){
+    var open = legendBody.classList.toggle("collapsed") === false;
+    legendToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    legendToggle.textContent = open ? "Recoger la leyenda ↑" : "Leer la leyenda completa ↓";
+  });
+  var hasProgress = state.some(function(v){ return v > 0; });
+  document.getElementById("howtoDetails").open = !hasProgress;
+  if(hasProgress && location.hash !== "#demo-final"){ document.getElementById("pistas").scrollIntoView(); }
+  grid.addEventListener("click", function(ev){
+    var hb = ev.target.closest(".hint-btn");
+    if(!hb) return;
+    hb.closest(".card").dataset.hint = "1";
+    render();
   });
 
   // Vista previa del final para quien organiza: abrir la página con #demo-final (no guarda nada en el móvil)
@@ -1528,6 +1588,83 @@
       watchId = null; gpsBtn.textContent = "📍 ¿Dónde estoy?";
       note.textContent = "No se pudo acceder al GPS. Comprueba que has dado permiso de ubicación a este navegador.";
     }, { enableHighAccuracy:true, maximumAge:5000, timeout:20000 });
+  });
+})();
+
+
+// --- frío / caliente: el Nuberu dice si hay alguna llama cerca (usa el GPS, funciona sin cobertura) ---
+(function(){
+  var PINS = [
+    { key:"entrada",  label:"Entrada",     special:true,  x:93.7,  y:394.6 },
+    { key:"p1",  label:"Casa 01", n:1,  x:129.1, y:457.3 },
+    { key:"p2",  label:"Casa 02", n:2,  x:234.8, y:434.0 },
+    { key:"p3",  label:"Casa 03", n:3,  x:221.3, y:401.3 },
+    { key:"p4",  label:"Casa 04", n:4,  x:217.2, y:396.6 },
+    { key:"p5",  label:"Casa 05", n:5,  x:226.4, y:375.3 },
+    { key:"p6",  label:"Casa 06", n:6,  x:228.7, y:323.1 },
+    { key:"p7",  label:"Casa 07", n:7,  x:249.3, y:330.6 },
+    { key:"p8",  label:"Casa 08", n:8,  x:234.0, y:300.6 },
+    { key:"p9",  label:"Casa 09", n:9,  x:225.7, y:290.5 },
+    { key:"p10", label:"Casa 10", n:10, x:237.9, y:239.5 },
+    { key:"p11", label:"Casa 11", n:11, x:312.4, y:245.0 },
+    { key:"p12", label:"Casa 12", n:12, x:389.0, y:230.2 },
+    { key:"p13", label:"Casa 13", n:13, x:205.0, y:268.0 },
+    { key:"p14", label:"Casa 14", n:14, x:262.0, y:285.0 },
+    { key:"p15", label:"Casa 15", n:15, x:300.0, y:300.0 },
+    { key:"p16", label:"Casa 16", n:16, x:180.0, y:345.0 },
+    { key:"p17", label:"Casa 17", n:17, x:255.0, y:395.0 },
+    { key:"p18", label:"Casa 18", n:18, x:150.0, y:430.0 },
+    { key:"p19", label:"Casa 19", n:19, x:270.0, y:260.0 },
+    { key:"p20", label:"Casa 20", n:20, x:200.0, y:300.0 },
+    { key:"chocolatada", label:"Chocolatada", special:true, x:238, y:256 }
+  ];
+  var POOLPINS = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "p12", "p13", "p14", "p15", "p16", "p17", "p18", "p19", "p20"];
+  var LAT0 = 43.2041070, LON0 = -6.0077236, R = 111320, COS = Math.cos(LAT0*Math.PI/180), X0 = -238, Y0 = -256;
+  var btn = document.getElementById("geoBtn"), out = document.getElementById("geoOut");
+  var watchId = null, LABEL = btn.textContent;
+  function pendientes(){
+    var list = [];
+    try{
+      var sel = (JSON.parse(localStorage.getItem("aciera-seleccion-2026")) || {}).sel || [];
+      var st = JSON.parse(localStorage.getItem("aciera-pegollinos-2026-v2")) || [];
+      sel.forEach(function(idx, i){
+        if(st[i] === 2) return;
+        var pin = PINS.filter(function(p){ return p.key === POOLPINS[idx]; })[0];
+        if(pin) list.push(pin);
+      });
+    }catch(e){}
+    return list;
+  }
+  function say(em, text, small){
+    out.hidden = false;
+    out.innerHTML = '<span class="em" aria-hidden="true">' + em + '</span><span><b>El Nuberu:</b> ' + text + (small ? '<small>' + small + '</small>' : '') + '</span>';
+  }
+  function stop(){
+    if(watchId !== null){ navigator.geolocation.clearWatch(watchId); watchId = null; }
+    btn.textContent = LABEL; out.hidden = true;
+  }
+  function onPos(pos){
+    var x = (pos.coords.longitude - LON0) * COS * R - X0, y = -(pos.coords.latitude - LAT0) * R - Y0;
+    var left = pendientes();
+    if(!left.length){ say("🎉", "No queda ninguna llama por encontrar… ¡Me has ganado! Jijiji."); return; }
+    var d = Math.min.apply(null, left.map(function(p){ return Math.hypot(p.x - x, p.y - y); }));
+    var weak = pos.coords.accuracy > 80 ? "La señal GPS es poco precisa ahora mismo; puede fallar un poco." : "";
+    if(d > 600){ say("🧊", "¡Brrr! Estás muy lejos de Aciera. Ven al pueblo y vuelve a preguntarme.", weak); }
+    else if(d > 200){ say("🧊", "Frío, frío, frío… Las llamas andan lejos de aquí.", weak); }
+    else if(d > 100){ say("❄️", "Fresquito. Todavía te queda camino hasta la próxima llama.", weak); }
+    else if(d > 50){ say("🌤️", "Templado… Algo se nota en el aire. ¡Sigue por aquí!", weak); }
+    else if(d > 20){ say("🔥", "¡Caliente, caliente! Hay una llama cerca. Mira los adornos de las casas.", weak); }
+    else { say("🌋", "¡Te estás quemando! Una llama está aquí al lado. ¡Busca el cartelito con el número!", weak); }
+  }
+  btn.addEventListener("click", function(){
+    if(watchId !== null){ stop(); return; }
+    if(!("geolocation" in navigator)){ say("☁️", "Este móvil no me deja usar el GPS."); return; }
+    btn.textContent = "Dejar de preguntar al Nuberu";
+    say("☁️", "Soplando por el valle para ver dónde estás…");
+    watchId = navigator.geolocation.watchPosition(onPos, function(){
+      stop(); btn.textContent = LABEL;
+      say("☁️", "No puedo saber dónde estás. Comprueba que has dado permiso de ubicación a este navegador.");
+    }, { enableHighAccuracy:true, maximumAge:4000, timeout:25000 });
   });
 })();
 
