@@ -1,0 +1,31 @@
+LA RUTA DE PEGOLLIN - version web instalable (funciona sin cobertura)
+======================================================================
+
+Esta carpeta es TODO lo que hay que publicar. No edites index.html a mano:
+se genera desde ../juego-gnomos-aciera.html y ../plano-aciera.html con
+    python construir_web.py     (ejecutar dentro de NAVIDAD_26)
+Cada vez que cambies el juego o los pines del plano, vuelve a ejecutarlo
+y vuelve a subir la carpeta web/.
+
+PUBLICAR EN GITHUB PAGES
+1. Crea un repositorio publico en GitHub (p. ej. "aciera").
+2. Sube el CONTENIDO de esta carpeta web/ (index.html, sw.js, manifest.webmanifest,
+   icon*.png, icon.svg y la carpeta fonts/) a la raiz del repositorio.
+3. Settings > Pages > Source: "Deploy from a branch" > rama main, carpeta /(root).
+4. Tras un par de minutos la direccion sera https://TU-USUARIO.github.io/aciera/
+5. Esa direccion es la que va en el QR (genera el QR con ESA direccion final).
+
+PROBAR ANTES DE IMPRIMIR EL CARTEL
+- Abre la direccion en el movil CON cobertura. Abajo debe poner
+  "Listo para jugar sin conexion".
+- Activa el modo avion, cierra el navegador y vuelve a abrir la direccion
+  (o el icono instalado): debe cargar y el plano debe verse.
+- Android/Chrome: aviso "Instalar". iPhone/Safari: Compartir > Anadir a pantalla de inicio.
+
+AL CAMBIAR EL JUEGO
+El service worker (sw.js) cambia de version solo; los moviles se actualizan
+la proxima vez que abran el juego con cobertura.
+
+PENDIENTE ANTES DE LANZAR
+- Colocar los pines reales en el plano (DEFAULT_PINS en plano-aciera.html) y regenerar.
+- Sustituir casas, pistas, preguntas y numeros (code) de ejemplo por los reales.
