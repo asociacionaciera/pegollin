@@ -733,8 +733,6 @@
     <p style="margin:18px 0 0"><span class="offline-chip" id="offlineChip">Preparando el juego para usarlo sin cobertura…</span></p>
 
     <dl class="facts">
-      <div><dt>Encendido</dt><dd>5 dic · 18:00</dd></div>
-      <div><dt>Chocolatada</dt><dd>Para todo el que se acerque</dd></div>
       <div><dt>Llamas</dt><dd>12 por recuperar</dd></div>
     </dl>
   </header>
@@ -763,7 +761,7 @@
 
     <p class="beat"><strong>Necesitaba tu ayuda.</strong></p>
 
-    <p>Desde el <strong>5 de diciembre, a las 18:00</strong>, cuando Aciera se vista de luz, y hasta la llegada de los Reyes Magos, las llamas permanecerán escondidas entre los adornos de las casas. Tu misión: recorrer las caleyas, seguir las pistas y descubrir dónde se esconde cada una.</p>
+    <p>Cuando Aciera se vista de luz, y hasta la llegada de los Reyes Magos, las llamas permanecerán escondidas entre los adornos de las casas. Tu misión: recorrer las caleyas, seguir las pistas y descubrir dónde se esconde cada una.</p>
     <p class="beat"><strong>Cada descubrimiento devolverá una llama al candil de Pegollín.</strong></p>
     <p>Cuando consigas reunirlas todas, Pegollín compartirá contigo un secreto que ni el travieso Nuberu conoce: <strong>la verdadera magia de la Navidad de Aciera no está en las luces de sus casas, sino en las personas que las encienden.</strong></p>
 
@@ -830,20 +828,8 @@
   </section>
 
   <footer class="foot">
-    <details>
-      <summary>Notas para quien organice el juego</summary>
-      <p>Las casas, pistas y preguntas de abajo son un <strong>ejemplo</strong> — no son las casas reales todavía. El juego es sobre lo que cada vecino pone de verdad en su casa. Antes del 5 de diciembre:</p>
-      <ol>
-        <li>Apuntad <strong>todas las casas que quieran participar</strong>, no solo 12: cada visitante verá 12 elegidas al azar, y así participan todos los vecinos y la ruta cambia de una persona a otra. Con el visto bueno de cada vecino (algunos quizá prefieran no participar).</li>
-        <li>Asignad a cada casa un <strong>número</strong> poco obvio (dos cifras, sin orden, sin repetir) y colgad un cartelito bien visible desde la calle. Es la prueba de que el jugador ha llegado.</li>
-        <li>Cada casa es una entrada del array <code>POOL</code>: <code>pin</code> = su pin en el plano (p1, p2, p3…), <code>code</code> = el número del cartelito, <code>name</code> = el apodo (se muestra al abrir la tarjeta), <code>clue</code> = la pista para llegar sin decir el nombre ni el número.</li>
-        <li>Escribid una pregunta sobre algo que solo se ve mirando de cerca (<code>question</code>/<code>options</code>/<code>correct</code>; 0 = la primera opción, 1 = la segunda...). Dejad alguna fácil para los más pequeños y algunas más difíciles.</li>
-        <li>Cada casa necesita su pin en el plano (<code>plano-aciera.html</code>) con la misma clave. Cuántas casas se enseñan a cada visitante se cambia con <code>PER_GAME</code> (ahora 12).</li>
-        <li>Si cambiáis casas o números, el juego vuelve a sortear solo y las partidas empiezan de cero. Avisad antes de lanzar, para no cambiarlo cuando ya haya gente jugando.</li>
-      </ol>
-    </details>
     <p class="credit">Aciera, Quirós — hecho por y para el pueblo.</p>
-    <p class="credit" style="opacity:.55;margin-top:6px;font-size:11px">versión 1f3d275a</p>
+    <p class="credit" style="opacity:.55;margin-top:6px;font-size:11px">versión 3bc6bcf2</p>
   </footer>
 
 </div>
@@ -883,64 +869,64 @@
   // POOL = TODAS las casas que participan (pueden ser más de 12). A cada visitante le toca una selección
   // distinta de PER_GAME casas al azar, que se queda guardada en su móvil. Cada casa necesita un "code" único.
   var POOL = [
-    { pin:"p1", code:"47", name:"Ca Marcé", clue:"Después de pasar el desvío al pueblo de El Llano, a mano derecha, es la segunda casa a la izquierda.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p1", code:"1", name:"Capilla", clue:"Después de pasar el desvío al pueblo de El Llano, a mano derecha, es la segunda casa a la izquierda.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Cuántos sacos hay colgados en la fachada de la casa?",
       options:[ {label:"Dos", emoji:"2️⃣"}, {label:"Cuatro", emoji:"4️⃣"}, {label:"Seis", emoji:"6️⃣"} ], correct:1 },
-    { pin:"p2", code:"23", name:"La casa de la cuadra", clue:"Donde cuelga el cencerro más grande, cerca de la <em>cuadra</em>.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p2", code:"2", name:"Casa 1 Jose Antonio", clue:"Donde cuelga el cencerro más grande, cerca de la <em>cuadra</em>.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿De qué color es la estrella de la puerta?",
       options:[ {label:"Rojo", color:"#c23b2e"}, {label:"Dorado", color:"#c99a3d"}, {label:"Azul", color:"#2c5b96"} ], correct:1 },
-    { pin:"p3", code:"68", name:"La casa de la fuente", clue:"Justo al lado de la fuente del pueblo.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p3", code:"3", name:"Casa 2 Nacho/Sinaida", clue:"Justo al lado de la fuente del pueblo.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Qué hay colgado en la ventana?",
       options:[ {label:"Un farolillo", emoji:"🏮"}, {label:"Una guirnalda", emoji:"🎀"}, {label:"Un cascabel", emoji:"🔔"} ], correct:0 },
-    { pin:"p4", code:"15", name:"La casa del tejado inclinado", clue:"El <em>teyáu</em> más empinado, casi tocando las ramas de un árbol.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p4", code:"4", name:"Casa 3 Miguel/Lali", clue:"El <em>teyáu</em> más empinado, casi tocando las ramas de un árbol.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿De qué color son las luces del tejado?",
       options:[ {label:"Blancas", color:"#f4efe1"}, {label:"Doradas", color:"#c99a3d"}, {label:"Multicolor", emoji:"🌈"} ], correct:2 },
-    { pin:"p5", code:"82", name:"La casa del carro viejo", clue:"Tiene un <em>carru</em> de madera de adorno en la entrada, el que ya no sale al monte.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p5", code:"5", name:"Casa 4 Matilde", clue:"Tiene un <em>carru</em> de madera de adorno en la entrada, el que ya no sale al monte.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Qué lleva encima el carro?",
       options:[ {label:"Un árbol pequeño", emoji:"🎄"}, {label:"Un muñeco de nieve", emoji:"⛄"}, {label:"Regalos", emoji:"🎁"} ], correct:0 },
-    { pin:"p6", code:"39", name:"La casa del corral de piedra", clue:"La <em>corripa</em> de piedra, el corral pequeño nada más entrar al pueblo.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p6", code:"6", name:"Casa 5 Marcelina", clue:"La <em>corripa</em> de piedra, el corral pequeño nada más entrar al pueblo.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Cuántas estrellas hay en la pared?",
       options:[ {label:"Dos", emoji:"2️⃣"}, {label:"Cuatro", emoji:"4️⃣"}, {label:"Seis", emoji:"6️⃣"} ], correct:1 },
-    { pin:"p7", code:"56", name:"La casa de la farola", clue:"Junto al palu de la luz más cercano a la fuente.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p7", code:"7", name:"Casa 6 Juan/Lola", clue:"Junto al palu de la luz más cercano a la fuente.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿De qué están hechos los renos de delante?",
       options:[ {label:"Madera", emoji:"🪵"}, {label:"Alambre", emoji:"🔧"}, {label:"Neumáticos viejos", emoji:"🛞"} ], correct:2 },
-    { pin:"p8", code:"91", name:"La casa del corredor largo", clue:"El hórreo cuyo <em>corredor</em> da la vuelta entera a la casa.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p8", code:"8", name:"Casa 7 Patricia/Juan", clue:"El hórreo cuyo <em>corredor</em> da la vuelta entera a la casa.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Cuántos muñecos de nieve hay en el corredor?",
       options:[ {label:"Uno", emoji:"1️⃣"}, {label:"Dos", emoji:"2️⃣"}, {label:"Ninguno", emoji:"0️⃣"} ], correct:0 },
-    { pin:"p9", code:"34", name:"La casa del muro bajo", clue:"El muro que sirve de banco cuando hay chocolatada.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p9", code:"9", name:"Casa 8 Charo/Ramon", clue:"EJEMPLO: el muro bajo que sirve de banco junto al camino.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿De qué color es la guirnalda del muro?",
       options:[ {label:"Verde", color:"#3f7d3f"}, {label:"Roja", color:"#c23b2e"}, {label:"Dorada", color:"#c99a3d"} ], correct:0 },
-    { pin:"p10", code:"71", name:"La casa de la leñera", clue:"La <em>tenada</em> donde se guarda la leña para todo el invierno.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p10", code:"10", name:"Lavadero", clue:"La <em>tenada</em> donde se guarda la leña para todo el invierno.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Qué hay encima de la leña?",
       options:[ {label:"Un gorro de Papá Noel", emoji:"🎅"}, {label:"Un búho de madera", emoji:"🦉"}, {label:"Nada, está vacía", emoji:"🚫"} ], correct:0 },
-    { pin:"p11", code:"28", name:"La casa del balcón con luces", clue:"El balcón con más hileras de luces de todo el pueblo.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p11", code:"11", name:"Casa 9 Guti/Coloma", clue:"El balcón con más hileras de luces de todo el pueblo.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿De qué color son las luces del balcón?",
       options:[ {label:"Azules", color:"#2c5b96"}, {label:"Blancas", color:"#f4efe1"}, {label:"Verdes", color:"#3f7d3f"} ], correct:1 },
-    { pin:"p12", code:"63", name:"La casa de la chocolatada", clue:"La última: mira alrededor del propio puesto de la chocolatada, no hace falta ir más lejos.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
-      question:"¿Qué hay dibujado en el cartel de la chocolatada?",
+    { pin:"p12", code:"12", name:"Casa 10 Jesus/Alegria", clue:"EJEMPLO: la última, junto a la plaza del pueblo.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+      question:"¿Qué hay dibujado en el cartel de la puerta?",
       options:[ {label:"Una taza", emoji:"☕"}, {label:"Un trasgu", emoji:"🧙"}, {label:"Unas campanas", emoji:"🔔"} ], correct:0 },
-    { pin:"p13", code:"52", name:"La casa del pozo", clue:"Junto al pozo de piedra, al fondo de la calle.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p13", code:"13", name:"Casa 11 Asociacion", clue:"Junto al pozo de piedra, al fondo de la calle.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Cuántos farolillos cuelgan de la puerta?",
       options:[ {label:"Uno", emoji:"1️⃣"}, {label:"Tres", emoji:"3️⃣"}, {label:"Cinco", emoji:"5️⃣"} ], correct:1 },
-    { pin:"p14", code:"87", name:"La casa del manzano", clue:"Bajo el manzano más grande, a la entrada del pueblo.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p14", code:"14", name:"Casa 12 Alcalde", clue:"Bajo el manzano más grande, a la entrada del pueblo.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿De qué color es el lazo del árbol?",
       options:[ {label:"Rojo", color:"#c23b2e"}, {label:"Verde", color:"#3f7d3f"}, {label:"Dorado", color:"#c99a3d"} ], correct:0 },
-    { pin:"p15", code:"19", name:"La casa del puente", clue:"Junto al arroyo, cerca del puente de madera.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p15", code:"15", name:"Casa 13 Rosario", clue:"Junto al arroyo, cerca del puente de madera.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Qué lleva puesto el muñeco de la puerta?",
       options:[ {label:"Un gorro", emoji:"🧢"}, {label:"Una bufanda", emoji:"🧣"}, {label:"Nada", emoji:"🚫"} ], correct:1 },
-    { pin:"p16", code:"64", name:"La casa del hórreo azul", clue:"El hórreo con la puerta pintada de azul.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p16", code:"16", name:"Casa 14 Gallegos", clue:"El hórreo con la puerta pintada de azul.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Cuántas estrellas cuelgan del corredor?",
       options:[ {label:"Tres", emoji:"3️⃣"}, {label:"Cinco", emoji:"5️⃣"}, {label:"Siete", emoji:"7️⃣"} ], correct:1 },
-    { pin:"p17", code:"41", name:"La casa de la parra", clue:"La que tiene una parra subiendo por la fachada.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p17", code:"17", name:"Casa 15 Camino Llano", clue:"La que tiene una parra subiendo por la fachada.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Qué hay en la ventana de arriba?",
       options:[ {label:"Una vela", emoji:"🕯️"}, {label:"Una estrella", emoji:"⭐"}, {label:"Un muñeco", emoji:"🧸"} ], correct:1 },
-    { pin:"p18", code:"76", name:"La casa del camino alto", clue:"La última del camino que sube hacia el monte.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p18", code:"18", name:"Casa 16 Gloria", clue:"La última del camino que sube hacia el monte.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿De qué color son las luces del portal?",
       options:[ {label:"Blancas", color:"#f4efe1"}, {label:"Rojas", color:"#c23b2e"}, {label:"Azules", color:"#2c5b96"} ], correct:0 },
-    { pin:"p19", code:"36", name:"La casa de la fragua", clue:"Donde antes estaba la fragua, junto al camino de la iglesia.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p19", code:"19", name:"Casa 17 Matilde", clue:"Donde antes estaba la fragua, junto al camino de la iglesia.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿Qué hay colgado sobre la puerta?",
       options:[ {label:"Una herradura", emoji:"🧲"}, {label:"Una estrella", emoji:"⭐"}, {label:"Una campana", emoji:"🔔"} ], correct:2 },
-    { pin:"p20", code:"93", name:"La casa del nogal", clue:"La que tiene un nogal enorme pegado a la pared.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
+    { pin:"p20", code:"20", name:"Casa 18 Luis Venta", clue:"La que tiene un nogal enorme pegado a la pared.", hint2:"EJEMPLO: otra pista más directa para llegar a esta casa, sin decir su número.",
       question:"¿De qué color es el lazo del nogal?",
       options:[ {label:"Rojo", color:"#c23b2e"}, {label:"Blanco", color:"#f4efe1"}, {label:"Dorado", color:"#c99a3d"} ], correct:0 }
   ];
@@ -1609,8 +1595,7 @@
     { key:"p17", label:"Casa 17", n:17, x:255.0, y:395.0 },
     { key:"p18", label:"Casa 18", n:18, x:150.0, y:430.0 },
     { key:"p19", label:"Casa 19", n:19, x:270.0, y:260.0 },
-    { key:"p20", label:"Casa 20", n:20, x:200.0, y:300.0 },
-    { key:"chocolatada", label:"Chocolatada", special:true, x:238, y:256 }
+    { key:"p20", label:"Casa 20", n:20, x:200.0, y:300.0 }
   ];
   var BTYPES = { 4:"house", 15:"house", 60:"house", 38:"barn", 39:"barn", 44:"barn" };
   var LAT0 = 43.2041070, LON0 = -6.0077236, R = 111320, COS = Math.cos(LAT0*Math.PI/180), X0 = -238, Y0 = -256;
@@ -1739,8 +1724,7 @@
     { key:"p17", label:"Casa 17", n:17, x:255.0, y:395.0 },
     { key:"p18", label:"Casa 18", n:18, x:150.0, y:430.0 },
     { key:"p19", label:"Casa 19", n:19, x:270.0, y:260.0 },
-    { key:"p20", label:"Casa 20", n:20, x:200.0, y:300.0 },
-    { key:"chocolatada", label:"Chocolatada", special:true, x:238, y:256 }
+    { key:"p20", label:"Casa 20", n:20, x:200.0, y:300.0 }
   ];
   var POOLPINS = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "p12", "p13", "p14", "p15", "p16", "p17", "p18", "p19", "p20"];
   var LAT0 = 43.2041070, LON0 = -6.0077236, R = 111320, COS = Math.cos(LAT0*Math.PI/180), X0 = -238, Y0 = -256;

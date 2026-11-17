@@ -274,7 +274,7 @@ li.done .dot{ background:var(--ok); }
     { label:"Casa n.º 30", kind:"casa numerada", x:230, y:287.2 },
     { label:"Casa n.º 39", kind:"casa numerada", x:256.7, y:201.1 }
   ], BTYPES = { 4:"house", 15:"house", 60:"house", 38:"barn", 39:"barn", 44:"barn" };
-  var HOUSES = [{"pin": "p1", "name": "Ca Marcé"}, {"pin": "p2", "name": "La casa de la cuadra"}, {"pin": "p3", "name": "La casa de la fuente"}, {"pin": "p4", "name": "La casa del tejado inclinado"}, {"pin": "p5", "name": "La casa del carro viejo"}, {"pin": "p6", "name": "La casa del corral de piedra"}, {"pin": "p7", "name": "La casa de la farola"}, {"pin": "p8", "name": "La casa del corredor largo"}, {"pin": "p9", "name": "La casa del muro bajo"}, {"pin": "p10", "name": "La casa de la leñera"}, {"pin": "p11", "name": "La casa del balcón con luces"}, {"pin": "p12", "name": "La casa de la chocolatada"}, {"pin": "p13", "name": "La casa del pozo"}, {"pin": "p14", "name": "La casa del manzano"}, {"pin": "p15", "name": "La casa del puente"}, {"pin": "p16", "name": "La casa del hórreo azul"}, {"pin": "p17", "name": "La casa de la parra"}, {"pin": "p18", "name": "La casa del camino alto"}, {"pin": "p19", "name": "La casa de la fragua"}, {"pin": "p20", "name": "La casa del nogal"}, {"pin": "entrada", "name": "Entrada del pueblo"}, {"pin": "chocolatada", "name": "Puesto de la chocolatada"}];
+  var HOUSES = [{"pin": "p1", "name": "Capilla"}, {"pin": "p2", "name": "Casa 1 Jose Antonio"}, {"pin": "p3", "name": "Casa 2 Nacho/Sinaida"}, {"pin": "p4", "name": "Casa 3 Miguel/Lali"}, {"pin": "p5", "name": "Casa 4 Matilde"}, {"pin": "p6", "name": "Casa 5 Marcelina"}, {"pin": "p7", "name": "Casa 6 Juan/Lola"}, {"pin": "p8", "name": "Casa 7 Patricia/Juan"}, {"pin": "p9", "name": "Casa 8 Charo/Ramon"}, {"pin": "p10", "name": "Lavadero"}, {"pin": "p11", "name": "Casa 9 Guti/Coloma"}, {"pin": "p12", "name": "Casa 10 Jesus/Alegria"}, {"pin": "p13", "name": "Casa 11 Asociacion"}, {"pin": "p14", "name": "Casa 12 Alcalde"}, {"pin": "p15", "name": "Casa 13 Rosario"}, {"pin": "p16", "name": "Casa 14 Gallegos"}, {"pin": "p17", "name": "Casa 15 Camino Llano"}, {"pin": "p18", "name": "Casa 16 Gloria"}, {"pin": "p19", "name": "Casa 17 Matilde"}, {"pin": "p20", "name": "Casa 18 Luis Venta"}, {"pin": "entrada", "name": "Entrada del pueblo"}];
   var LAT0 = 43.2041070, LON0 = -6.0077236, R = 111320, COS = Math.cos(LAT0*Math.PI/180), X0 = -238, Y0 = -256;
   var NS = "http://www.w3.org/2000/svg", KEY = "aciera-colocar-v1";
   var svg = document.getElementById("map");
@@ -291,7 +291,7 @@ li.done .dot{ background:var(--ok); }
 
   var sel = null, last = null, zoomed = false, watchId = null;
   function find(key){ return HOUSES.filter(function(h){ return h.pin === key; })[0]; }
-  function label(h){ return h.pin === "entrada" ? "E" : h.pin === "chocolatada" ? "C" : h.pin.replace("p", ""); }
+  function label(h){ return h.pin === "entrada" ? "E" : h.pin.replace("p", ""); }
 
   function drawPins(){
     pinsG.innerHTML = "";
